@@ -7,4 +7,11 @@ angular.module('app')
       $location.path('/')
     })
   }
+  $scope.logout = function (username, password) {
+    UserSvc.login('', '')
+    .then(function (user) {
+      $scope.$emit('logout', user)
+      $location.path('/')
+    })
+  }
 })

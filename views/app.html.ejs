@@ -10,12 +10,18 @@
         <ul class='nav navbar-nav'>
           <li><a class='posts' href='/#/'>Posts</a></li>
           <li><a class='register' href='/#/register'>Register</a></li>
-          <li><a class='login' href='/#/login'>Login</a></li>
           <li><a class='block' href='/#/block'>Block</a></li>
+          <li><a class='login' href='/#/login'>Login</a></li>
         </ul>
-        <p ng-if='currentUser' class='navbar-text navbar-right'>
+        <p ng-if='currentUser!=nul' class='navbar-text navbar-right'>
           Signed in as {{currentUser.username}}
+          <!--input class="btn btn-success btn-lg btn-block" type="submit" value="Logout"-->
+          <button ng-click='usrlogout()' class='btn btn-success'>Logout</button>
         </p>
+        <p ng-if='currentUser==nul' class='navbar-text navbar-right'>
+          <button ng-click='href=/#/login' class='btn btn-success'>Login</button>
+        </p>
+      </div>
       </div>
     </nav>
     <div class='container' ng-view></div>
