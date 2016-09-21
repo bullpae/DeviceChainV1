@@ -13,7 +13,7 @@ angular.module('app')
 
   $scope.$on('ws:new_block', function (_, block) {
     $scope.$apply(function () {
-      $scope..unshift(post)
+      $scope.unshift(post)
     })
   })
 
