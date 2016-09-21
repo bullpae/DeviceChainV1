@@ -3,9 +3,12 @@ windows dev setup
 Install VSBuild.exe
 npm install --global --production windows-build-tools
 https://github.com/nodejs/node-gyp/issues/307
+ 
 
 Install Mongodb
 https://www.mongodb.com/download-center?jmp=nav#community
+No wiredTiger Engine -> mongod --dbpath "data" --storageEngine "mmapv1"
+
 
 Install Redis
 https://github.com/dmajkic/redis/downloads

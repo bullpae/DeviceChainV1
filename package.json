@@ -1,5 +1,6 @@
 {
-  "name": "DeviceChainV1",
+  "name": "devicechain",
+  "version": "0.0.1",
   "scripts": {
     "start": "node boot.js",
     "test": "jshint . && mocha && ./node_modules/karma/bin/karma start --single-run && protractor",
