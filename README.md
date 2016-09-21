@@ -1,3 +1,20 @@
+windows dev setup
+
+Install VSBuild.exe
+npm install --global --production windows-build-tools
+https://github.com/nodejs/node-gyp/issues/307
+
+Install Mongodb
+https://www.mongodb.com/download-center?jmp=nav#community
+
+Install Redis
+https://github.com/dmajkic/redis/downloads
+http://lovedb.tistory.com/150
+
+
+
+
+
 Sample project for [Write Modern Web Apps with the MEAN Stack](http://www.amazon.com/Write-Modern-Apps-MEAN-Stack/dp/0133930157) by [Jeff Dickey](https://dickey.xxx)
 
 [![Write Modern Web Apps with the MEAN Stack](book.jpg)](http://www.amazon.com/Write-Modern-Apps-MEAN-Stack/dp/0133930157)
