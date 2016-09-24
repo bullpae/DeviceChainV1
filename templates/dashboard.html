@@ -1,0 +1,32 @@
+<h1>DeviceChain Node State</h1>
+<!--form role='form'>
+  <div class='form-group'>
+    <div class="input-group">
+      <input ng-model="postBody" class='form-control'>
+      <span class='input-group-btn'>
+        <button ng-click='addPost()' class='btn btn-default'>Add Post</button>
+      </span>
+    </div>
+  </div>
+</form-->
+
+<script src='../javascript/dc_node.js'></script>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Host</th>
+        <th>Port</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="dc_node in dc_list">
+      <tr class="success">
+        <td>{{ dc_node.name }}</td>
+        <td>{{ dc_node.host }}</td>
+        <td>{{ dc_node.port }}</td>
+        <td>{{ dc_node.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ul-->
