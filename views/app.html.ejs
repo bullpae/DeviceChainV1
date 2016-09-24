@@ -16,12 +16,16 @@
           <li><a class='login' href='/#/login'>Login</a></li>
           <li><a class='register' href='/#/register'>Register</a></li>
         </ul>
-        <p ng-if='currentUser' class='navbar-text navbar-right'>
-          Signed in as {{currentUser.username}}
-        </p>
-        <!--button ng-click="go('/login')" class='btn btn-success'>{{currentUser=nul && 'Login' || 'Logout'}}</button-->
+        <div class='nav navbar-right'>
+          <!--button ng-click="go('login')" class='btn btn-success'>{{currentUser=nul && 'Login' || 'Logout'}}</button-->
+          <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p>
+          <button ng-click="go('#/login')" class='btn'>Login</button> 
+          
+        </div>
       </div>
+
     </nav>
+    
     <div class='container' ng-view></div>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.js'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular-route.js'></script>
