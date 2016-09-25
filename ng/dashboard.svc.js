@@ -12,4 +12,15 @@ angular.module('app')
       return response.data
     })
   }
+
+  var svc = this
+  svc.getNode = function () {
+    console.log("getNode TEST!")
+    return $http.get('/api/dc_nodes')
+    .then(function (response) {
+      console.log("kkk TEST")
+      return response.data
+    })
+  }
+
 })

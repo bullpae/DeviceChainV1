@@ -6,7 +6,7 @@
   </head>
   <body ng-controller='ApplicationCtrl'>
     <header class="main-header ng-scope" ng-include="'templates/header.html'">
-      <nav class="navbar ng-scope" role="navigation" ng-controller="HeaderCtrl">
+      <nav class="navbar ng-scope" role="navigation">
         <div class='nav navbar-right'>
           <!--button ng-click="go('login')" class='btn btn-success'>{{currentUser=nul && 'Login' || 'Logout'}}</button-->
           <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p>
@@ -38,6 +38,7 @@
     <div class='container' ng-view></div>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.js'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular-route.js'></script>
+    <script src='/javascript/dc_node.js'></script>
     <script src='/app.js'></script>
     <footer ng-include="'/templates/footer.html'">
     </footer>
