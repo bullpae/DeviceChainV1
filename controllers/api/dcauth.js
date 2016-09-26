@@ -14,12 +14,7 @@ router.get('/dcauth', function (req, res, next) {
   auth.getAccessTokenByClientCredential(key, secret, function(err, res, req) {
     config.oAuthAccessToken = res.access_token;
     config.oAuthRefreshToken = res.refresh_token;
-    console.log("err test!!!!")
-    console.log(err)
-    console.log("resopnse test!!")
     console.log(res)
-    console.log("reqest test!!!")
-    console.log(req)
   });
 })
 
