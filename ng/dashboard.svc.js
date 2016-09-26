@@ -1,26 +1,25 @@
 angular.module('app')
 .service('DashboardSvc', function ($http) {
-  // this.fetch = function () {
-  //   console.log("NODE TEST!!")
-  //   // var dc_list = dc_node.list();
-  //   dc_list ={"name":"test", "host":"192.168.10.20", "port":"9999", "status":"OK"};
-  //   console.log("gdfsg TEST!!")
-  // }
-  this.fetch = function () {
-    return $http.get('/api/dcnodes')
-    .then(function (response) {
-      return response.data
+  var svc = this;
+  svc.getDcAuth = function () {
+    return $http.get('/api/dcauth')
+    .then(function (res) {
+      config = res;
+      return res;
     })
   }
 
-  var svc = this
   svc.getNode = function () {
+    var config = svc.getDcAuth();
+
     console.log("getNode TEST!")
-    return $http.get('/api/dcnodes')
-    .then(function (response) {
+    console.log(config)
+    
+    return $http.get('/api/dcnode', {
+      config: config
+    }).then(function (response) {
       console.log("kkk TEST")
       return response.data
     })
   }
-
 })

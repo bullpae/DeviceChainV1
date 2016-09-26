@@ -10,12 +10,12 @@ angular.module('app')
   // var dc_node = require("../javascript/dc_node");
   // $scope.dc_list = dc_node.list;
 
-  DashboardSvc.fetch()
-  .then(function (dc_nodes) {
-    console.log("test");
-    $scope.dc_nodes = dc_nodes;
-    console.log("test1");
-  })
+  // DashboardSvc.fetch()
+  // .then(function (dc_nodes) {
+  //   console.log("test");
+  //   $scope.dc_nodes = dc_nodes;
+  //   console.log("test1");
+  // })
 
   DashboardSvc.getNode()
     .then(function (dc_nodes) {

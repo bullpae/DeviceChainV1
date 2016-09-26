@@ -1,5 +1,4 @@
 var router = require('express').Router()
-// Import ScaleChain SDK
 var ScaleChain = require('scalechain-nodejs');
 
 router.get('/dcauth', function (req, res, next) {
@@ -14,7 +13,8 @@ router.get('/dcauth', function (req, res, next) {
   auth.getAccessTokenByClientCredential(key, secret, function(err, res, req) {
     config.oAuthAccessToken = res.access_token;
     config.oAuthRefreshToken = res.refresh_token;
-    console.log(res)
+    console.log(res);
+    return res;
   });
 })
 
