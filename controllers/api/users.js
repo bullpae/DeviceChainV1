@@ -5,6 +5,8 @@ var User   = require('../../models/user')
 var config = require('../../config')
 
 router.get('/users', function (req, res, next) {
+  console.log("user get 1")
+
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
   }
@@ -16,6 +18,7 @@ router.get('/users', function (req, res, next) {
 })
 
 router.post('/users', function (req, res, next) {
+   console.log("user post 1")
   var user = new User({username: req.body.username})
   bcrypt.hash(req.body.password, 10, function (err, hash) {
     if (err) { return next(err) }

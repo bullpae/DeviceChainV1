@@ -8,11 +8,19 @@ angular.module('app')
     })
   }
   svc.login = function (username, password) {
+    console.log("logint proc 5 %s %s", username, password)
+    console.log(username)
+    console.log(password)
+
     return $http.post('/api/sessions', {
       username: username, password: password
     }).then(function (response) {
+      console.log("logint proc 6")
+
       svc.token = response.data
       $http.defaults.headers.common['X-Auth'] = response.data
+      console.log("logint proc 7")
+
       return svc.getUser()
     })
   }

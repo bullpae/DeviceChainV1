@@ -5,8 +5,14 @@
     <link rel='stylesheet' href='/app.css'>
   </head>
   <body ng-controller='ApplicationCtrl'>
-    <header class="main-header ng-scope" ng-include="'templates/header.html'">
-      <nav class="navbar ng-scope" role="navigation">
+    <header class="main-header ng-scope">
+      <a class="logo ng-scope" href="/"> 
+        <!-- mini logo for sidebar mini 50x50 pixels --> 
+        <!--span class="logo-mini"><b>D</b>C</span--> 
+        <!-- logo for regular state and mobile devices --> 
+        <span class="logo-lg"><b>Divice</b>Chain</span> 
+      </a>
+      <nav class="navbar ng-scope" >
         <div class='nav navbar-right'>
           <!--button ng-click="go('login')" class='btn btn-success'>{{currentUser=nul && 'Login' || 'Logout'}}</button-->
           <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p>

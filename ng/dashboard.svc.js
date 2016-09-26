@@ -7,7 +7,7 @@ angular.module('app')
   //   console.log("gdfsg TEST!!")
   // }
   this.fetch = function () {
-    return $http.get('/api/dc_nodes')
+    return $http.get('/api/dcnodes')
     .then(function (response) {
       return response.data
     })
@@ -16,7 +16,7 @@ angular.module('app')
   var svc = this
   svc.getNode = function () {
     console.log("getNode TEST!")
-    return $http.get('/api/dc_nodes')
+    return $http.get('/api/dcnodes')
     .then(function (response) {
       console.log("kkk TEST")
       return response.data
