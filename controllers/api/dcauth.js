@@ -1,5 +1,6 @@
 var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
+var authinfo = require('../../models/dcauth.info')
 
 router.get('/dcauth', function (req, res, next) {
   console.log("dcauth module test")
@@ -16,6 +17,23 @@ router.get('/dcauth', function (req, res, next) {
     console.log(res);
     return res;
   });
+})
+
+router.post('/dcauth', function (req, res, next) {
+  var auth = new authinfo()
+  auth.user_id = 'tom' 
+  auth.token_type = req.config.token_type
+  auth.access_token = req.config.access_token
+  auth.expires_in = req.config.expires_in
+  auth.refresh_token = req.config.refresh_token
+
+  auth.save(function (err, auth) {
+    if(err){
+      console.err(err);
+      throw err;
+    }
+    res.send('success');
+  })
 })
 
 module.exports = router

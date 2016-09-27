@@ -17,6 +17,17 @@ angular.module('app')
   //   console.log("test1");
   // })
 
+  $scope.getAuth = function () {
+    if ($scope.postBody) {
+      dashboard.create({
+        body:     $scope.postBody
+      })
+      .then(function () {
+        $scope.postBody = null
+      })
+    }
+  }
+
   DashboardSvc.getNode()
     .then(function (dc_nodes) {
     console.log("node test1");

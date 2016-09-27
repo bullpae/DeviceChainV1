@@ -9,12 +9,17 @@ angular.module('app')
     })
   }
 
+  // save db
+  svc.saveDcAuth = function () {
+    
+  }
+
   svc.getNode = function () {
     var config = svc.getDcAuth();
 
     console.log("getNode TEST!")
     console.log(config)
-    
+
     return $http.get('/api/dcnode', {
       config: config
     }).then(function (response) {
