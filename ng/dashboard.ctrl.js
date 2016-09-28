@@ -1,4 +1,3 @@
-
 angular.module('app')
 .controller('DashboardCtrl', function ($scope, DashboardSvc) {
   $scope.dc_list = [
@@ -18,20 +17,16 @@ angular.module('app')
   // })
 
   $scope.getAuth = function () {
-    if ($scope.postBody) {
-      dashboard.create({
-        body:     $scope.postBody
-      })
-      .then(function () {
-        $scope.postBody = null
-      })
-    }
+    DashboardSvc.getDcAuth();
   }
 
+  console.log("dashboard.ctrl.js exe");
+  
   DashboardSvc.getNode()
-    .then(function (dc_nodes) {
+  .then(function (dc_nodes) {
     console.log("node test1");
-    $scope.dc_nodes = dc_nodes;
+    console.log(dc_nodes);
+    $scope.dc_list = dc_nodes;
     console.log("xxxest1");
   })
 })

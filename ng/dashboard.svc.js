@@ -15,16 +15,17 @@ angular.module('app')
   }
 
   svc.getNode = function () {
-    var config = svc.getDcAuth();
+    console.log("svc getNode exe start")
+    // var config = svc.getDcAuth();
 
-    console.log("getNode TEST!")
-    console.log(config)
-
-    return $http.get('/api/dcnode', {
-      config: config
-    }).then(function (response) {
+    // console.log("getNode TEST!")
+    // console.log(config)
+    console.log('dashboard.svc.js exe')
+    return $http.get('/api/dcnode')
+    .then(function (res) {
       console.log("kkk TEST")
-      return response.data
+      console.log(res)
+      return res.data
     })
   }
 })
