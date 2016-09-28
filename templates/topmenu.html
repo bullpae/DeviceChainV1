@@ -1,37 +1,19 @@
-<nav class="navbar navbar-static-top ng-scope" role="navigation" ng-controller="HeaderCtrl">
-  <!-- Sidebar toggle button--> 
-  <script>void 0!=$.AdminLTE.pushMenu&&$.AdminLTE.pushMenu.activate("[data-toggle='offcanvas']");</script>
-  <a class="sidebar-toggle" role="button" href="#" data-toggle="offcanvas"> 
-    <span class="sr-only">Toggle navigation</span> 
-  </a> 
-  <!-- Navbar Right Menu --> 
-  <div class="navbar-custom-menu"> 
-    <ul class="nav navbar-nav" style="margin-right:17px"> 
-      <li class="navbar-text navbar-right" style="margin-right:15px;color:#FFF"> 
-        <span class="hidden-xs">Signed in as </span>
-        <b class="ng-binding">bullpae@kaist.ac.kr</b> 
-      </li>
-      <li class="dropdown navbar-right"> 
-        <a class="dropdown-toggle ng-binding" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Testnet
-          <span class="caret"></span>
-        </a> 
-        <ul class="dropdown-menu"> 
-          <li class="dropdown-header">Switch Network
-          </li> 
-          <li ng-class="currentUser.profile.network != 'testnet' ? 'disabled' : ''"> 
-            <!-- ngIf: currentUser.profile.network == 'testnet' -->
-            <a class="ng-scope" style="color:#333" href="#" ng-if="currentUser.profile.network == 'testnet'" ng-click="switch_network($event, 'mainnet')">Mainnet</a>
-            <!-- end ngIf: currentUser.profile.network == 'testnet' --> 
-            <!-- ngIf: currentUser.profile.network != 'testnet' --> 
-          </li> 
-          <li class="disabled" ng-class="currentUser.profile.network == 'testnet' ? 'disabled' : ''"> 
-            <!-- ngIf: currentUser.profile.network != 'testnet' --> 
-            <!-- ngIf: currentUser.profile.network == 'testnet' -->
-            <a class="ng-scope" style="color:#777" href="#" ng-if="currentUser.profile.network == 'testnet'">Testnet</a>
-            <!-- end ngIf: currentUser.profile.network == 'testnet' -->
-          </li> 
-        </ul> 
-      </li> 
+<nav class='navbar navbar-inverse'>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><b> Device</b><i class="fa fa-chain"></i>Chain </a>
+    </div>
+    <ul class='nav navbar-nav'>
+      <li class="active"><a class='dashboard' href='/#/dashboard'><i class="fa fa-institution"></i> Dashboard</a></li>
+      <li><a class='posts' href='/#/'>Posts</a></li>
+      <li><a class='block' href='/#/block'>Block</a></li>
     </ul>
-  </div> 
+    <ul class='nav navbar-nav navbar-right'>
+      <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p>
+      <li><a href="/#/login#"><i class="fa fa-sign-in"></i> Login</a></li>
+      <li><a href="/#/register#"><i class="fa fa-user-plus"></i> Register</a></li>
+      <!--a class="btn btn-info pull-left" href="/#/login"><i class="fa fa-sign-in"></i> Login</a-->
+      <!--a class="btn btn-info pull-left" href="/#/register"><i class="fa fa-user-plus"></i> Register</a-->
+    </ul>
+  </div>
 </nav>

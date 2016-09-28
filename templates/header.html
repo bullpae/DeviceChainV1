@@ -1,7 +1,21 @@
-<!-- Logo -->
-<a class="logo ng-scope" href="/"> 
-  <!-- mini logo for sidebar mini 50x50 pixels --> 
-  <!--span class="logo-mini"><b>D</b>C</span--> 
-  <!-- logo for regular state and mobile devices --> 
-  <span class="logo-lg"><b>Divice</b>Chain</span> 
-</a>
+
+<nav class='navbar navba-inverse'>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><h5><b> Divice</b><i class="fa fa-chain"></i> Chain </h5></a>
+    </div>
+    <ul class='nav navbar-nav'>
+      <li class="active"><a class='dashboard' href='/#/dashboard'><i class="fa fa-institution"></i> Dashboard</a></li>
+      <li><a class='posts' href='/#/'>Posts</a></li>
+      <li><a class='block' href='/#/block'>Block</a></li>
+      <!--li><a class='login' href='/#/login'>Login</a></li-->
+      <!--li><a class='register' href='/#/register'>Register</a></li-->
+    </ul>
+    <ul class='nav navbar-right'>
+      <!--button ng-click="go('login')" class='btn btn-success'>{{currentUser=nul && 'Login' || 'Logout'}}</button-->
+      <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p>
+      <a class="btn btn-sm btn-info pull-left" href="/#/login"><i class="fa fa-sign-in"></i> Login</a>
+      <a class="btn btn-sm btn-info pull-left" href="/#/register"><i class="fa fa-user-plus"></i> Register</a>
+    </ul>
+  </div>
+</nav>

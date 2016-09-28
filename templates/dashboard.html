@@ -11,22 +11,23 @@
 </form-->
 
 <button ng-click="getAuth()" class='btn btn-success'>GET DC KEY</button>
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Host</th>
-        <th>Port</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody ng-repeat="dc_node in dc_list">
-      <tr class="success">
-        <td>{{ dc_node.subver}}</td>
-        <td>{{ dc_node.addr }}</td>
-        <td>{{ dc_node.port }}</td>
-        <td>{{ dc_node.status }}</td>
-      </tr>
-    </tbody>
-  </table>
-</ul-->
+<div class="container">
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Host</th>
+          <th>Port</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="dc_node in dc_list">
+        <tr class="success">
+          <td>{{ dc_node.subver}}</td>
+          <td>{{ dc_node.addr }}</td>
+          <td>{{ dc_node.port }}</td>
+          <td>{{ dc_node.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
