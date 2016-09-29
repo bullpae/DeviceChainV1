@@ -18,8 +18,23 @@ http://lovedb.tistory.com/150
 
 
 
+* Server
+기기 등록 단계
+인증 요청 받은 기기 인증 처리 단계 
+인증 정보 확인 단계
+통신 테스트
+ 인증 된 기기 일 경우 인증 화면 출력
+ 미 인증 된 기기 일 경우 오류 화면 출력
+
+* Client
+키 쌍 생성 단계
+기기 정보와 공개키를 이용한 기기 인증 단계
+통신 테스트 
+ 인증 된 기기 일 경우 정상 접속 화면 출력
+ 미 인증 된 기기 일 경우 미 인증 화면 출력
 
 
+ 
 Sample project for [Write Modern Web Apps with the MEAN Stack](http://www.amazon.com/Write-Modern-Apps-MEAN-Stack/dp/0133930157) by [Jeff Dickey](https://dickey.xxx)
 
 [![Write Modern Web Apps with the MEAN Stack](book.jpg)](http://www.amazon.com/Write-Modern-Apps-MEAN-Stack/dp/0133930157)
