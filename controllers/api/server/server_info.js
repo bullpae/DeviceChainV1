@@ -13,11 +13,13 @@ router.get('/server_info', function (req, res, next) {
 
 router.post('/server_info', function (req, res, next) {
   console.log("server_info post 1")
-  // todo: get scalechain account and merge info and save
-  var server = new ServerInfo({servername: req.body.servername,
-    option: req.body.option})
-  
-  server.serverid = "serverid test"
+
+  var server = new ServerInfo()
+  server.servername = req.body.server.name
+  server.option = req.body.server.identifier
+  server.serverid = req.body.server._id
+  server.createdate = req.body.server.created_at
+
   console.log("save info %s %s %s", server.servername, server.option, server.serverid)
 
   server.save(function (err) {

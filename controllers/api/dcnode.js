@@ -8,7 +8,7 @@ router.get('/dcnode', function (req, res, next) {
   var config = ScaleChain.configuration; 
   console.log(config)
 
-  node.list('mainnet', function(err, resList, reqList) {
+  node.list('testnet', function(err, resList, reqList) {
     console.log('dcnode.js node.list end')
     res.send(resList)
     return res

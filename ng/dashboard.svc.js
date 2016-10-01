@@ -4,7 +4,6 @@ angular.module('app')
   svc.getDcAuth = function () {
     return $http.get('/api/dcauth')
     .then(function (res) {
-      config = res;
       return res;
     })
   }
