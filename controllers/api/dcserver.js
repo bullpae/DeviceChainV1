@@ -18,7 +18,7 @@ router.post('/dcserver', function (req, res, next) {
   });
 })
 
-router.delete('/dcserver', function (req, res, next) {
+router.delete('/dcserver/:serverid', function (req, res, next) {
   console.log("dcserver delete 1 %s", req.params.serverid)
   console.log(req.params)
   console.log("dcserver delete 1 %s", req.params.serverid)

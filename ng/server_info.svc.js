@@ -30,7 +30,7 @@ angular.module('app')
     // todo: after delete sc account
     console.log(server)
     console.log("delete server info %s", server.serverid)
-    return $http.delete('/api/dcserver', {
+    return $http.delete('/api/dcserver/' + server.serverid, {
       serverid: server.serverid 
     }).then(function (res) {
       return $http.post('/api/server/delete', {
