@@ -5,6 +5,7 @@ router.use(require('../auth'))
 router.use(bodyParser.json())
 
 router.use('/api', require('./api'))
+router.use('/api/server', require('./api/server'))
 router.use('/', require('./static'))
 
 module.exports = router
