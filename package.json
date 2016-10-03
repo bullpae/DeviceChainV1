@@ -1,11 +1,16 @@
 {
-  "name": "devicechain",
+  "name": "devicechain_v1",
   "version": "0.0.1",
   "scripts": {
     "start": "node boot.js",
     "test": "jshint . && mocha && ./node_modules/karma/bin/karma start --single-run && protractor",
     "postinstall": "bower install && gulp build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bullpae/DeviceChainV1.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.0",
     "body-parser": "^1.9.0",
