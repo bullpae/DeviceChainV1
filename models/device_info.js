@@ -7,6 +7,7 @@ var ServerInfo = db.model('DeviceInfo', {
   asset_address: { type: String, required: false},
   watch_only: { type: String, required: false },
   network: { type: String, required: false},
+  certstatus: { type: String, required: false},
   createdate: { type: Date, required: true, default: Date.now }
 })
 
