@@ -1,7 +1,7 @@
 angular.module('app')
 .config(function ($routeProvider) {
   $routeProvider
-  .when('/',         { controller: 'PostsCtrl', templateUrl: '/templates/posts.html' })
+  .when('/',         { controller: '', templateUrl: '/templates/index.html' })
   .when('/dashboard',{ controller: 'DashboardCtrl', templateUrl: '/templates/dashboard.html' })
   .when('/server_mana',{ controller: 'ServerManaCtrl', templateUrl: '/templates/server/server_mana.html' })
   .when('/server_reg',{ controller: 'ServerRegCtrl', templateUrl: '/templates/server/server_reg.html' })
