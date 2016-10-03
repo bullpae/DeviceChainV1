@@ -5,7 +5,7 @@ angular.module('app')
     ServerInfoSvc.register(servername, option)
     .then(function (server_list) {
       console.log("Start ServerInfoSvc register")
-      $location.path('/server_mana')
+      $location.path('/server_info')
     })
     console.log("end server_reg.ctrl register")
   }

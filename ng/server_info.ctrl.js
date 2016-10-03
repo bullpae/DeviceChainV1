@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('ServerManaCtrl', function ($scope, ServerInfoSvc, $location) {
+.controller('ServerInfoCtrl', function ($scope, ServerInfoSvc, $location) {
   // ServerInfoSvc.fetch()
   // .then(function (server_list) {
   //   $scope.server_list = server_list
@@ -18,7 +18,7 @@ angular.module('app')
     if (server) {
       ServerInfoSvc.delete_server(server)
       .then(function () {
-        // $location.path('/server_mana')
+        // $location.path('/server_info')
         refresh()
       })
     }
@@ -27,7 +27,7 @@ angular.module('app')
   // $scope.delete_server ($scope.server) {
   //   ServerInfoSvc.delete_server (server)
   //   .then(function (server_list) {
-  //     $location.path('/server_mana')
+  //     $location.path('/server_info')
   //   })
   // }
 })
