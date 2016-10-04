@@ -7,6 +7,7 @@ router.use(require('./users'))
 router.use(require('./dcauth'))
 router.use(require('./dcnode'))
 router.use(require('./dcserver'))
+router.use(require('./dcaddress'))
 //router.use('/api/server', require('./api/server'))
 
 // api 추가 후 npm 재시작 필요!

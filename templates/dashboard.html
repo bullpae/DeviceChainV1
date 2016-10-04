@@ -24,9 +24,9 @@
       <tbody ng-repeat="dc_node in dc_list">
         <tr class="success">
           <td>{{ dc_node.subver}}</td>
-          <td>{{ dc_node.addr }}</td>
-          <td>{{ dc_node.port }}</td>
-          <td>{{ dc_node.status }}</td>
+          <td>{{ strSplit(dc_node.addr)[0] }}</td>
+          <td>{{ strSplit(dc_node.addr)[1] }}</td>
+          <td><i class="fa fa-check-square-o"></i>{{ dc_node.status }}</td>
         </tr>
       </tbody>
     </table>

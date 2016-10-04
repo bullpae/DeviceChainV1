@@ -1,8 +1,22 @@
 var router = require('express').Router()
 var ServerInfo = require('../../../models/server_info')
 
+router.get('/server_info/:servername', function (req, res, next) {
+  console.log("server_info get 1 %s", req.params.servername)
+  
+  ServerInfo.find({servername:req.params.servername})
+  .sort('-date')
+  .exec(function (err, server) {
+    if (err) { return next(err) }
+    console.log(server)
+    res.json(server)
+    console.log("get server info %s", server.serverid)
+  })
+})
+
 router.get('/server_info', function (req, res, next) {
   console.log("server_info get 1")
+  
   ServerInfo.find()
   .sort('-date')
   .exec(function (err, server_list) {

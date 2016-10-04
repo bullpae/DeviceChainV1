@@ -1,0 +1,21 @@
+<h1>장치 인증 정보 생성</h1>
+<form ng-submit="register(servername, devicetype, deviceid)">
+  <div class="form-group">
+    <label>인증 정보 생성 서버 이름</label>
+    <input class="form-control" type="text" ng-model="servername">
+  </div>
+  <div class="form-group">
+    <label>Device Type</label>
+    <input class="form-control" type="text" ng-model="devicetype">
+  </div>
+  <div class="form-group">
+    <label>Device ID</label>
+    <input class="form-control" type="text" ng-model="deviceid">
+  </div>
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="인증 정보 생성">
+  <p></p> <p></p> 
+</form>
+<!-- 인증서버에서 장치의 고유 키와 어드레스를 얻어 저장한다. 원래는 장치에만 이 정보를 저장한다. -->
+<!-- 어드레스를 바탕으로 인증 요청을 시도하면 서버에 등록되어 있는 Device ID와 Type을 비교하여 인증한다-->
+<!-- 인증은 서버에서 가지고 있는 코인을 토큰으로 생각하여 해당 장치로 Transaction 한다. -->
+<!-- 네트워크 합의 후 밸런스를 읽어 0이면 미인증 1이면 인증 상태로 판단한다. -->

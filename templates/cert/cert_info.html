@@ -1,0 +1,27 @@
+<h1>인증 정보</h1>
+<div class="container">
+  <button type="button" class="btn btn-default">등록</button>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Device Type</th>
+        <th>Device ID</th>
+        <th>인증 상태</th>
+        <th>Created Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="cert in cert_list">
+      <tr class="success">
+        <td>{{ cert.devicetype }}</td>
+        <td>{{ cert.deviceid }}</td>
+        <td>{{ cert.certstatus }}</td>
+        <td>{{ cert.createdate }}</td>
+        <td><button type="button" class="btn btn-default" ng-click="delete_cert(cert)"><i class="fa fa-trash-o"></i></button></td>
+        <!--td><i class="fa fa-trash-o" ng-click="delete_device(device)" aria-label="Delete" role="button"></i></td-->
+      </tr>
+    </tbody>
+  </table>
+</div>
