@@ -27,3 +27,17 @@ curl https://api.scalechain.io/v1/addresses/n1v1Z54SmXYS1qt3TTen2ToLp9BfMYux72\
   -H 'Content-Type: application/json' \
   -d '{"issuer_address":"bX2wJxZBCmDLu6iYty86kjbnK1AeketkfLR", "to_address":"bWysoGVx3NkuYC1NLxRotzLBNrAGZxckfph", "metadata":{"name_short": "SMPL", "name": "Sample Stock", "issuer": "Sample, Inc.", "description": "This is a sample stock.", "type": "Stock", "divisibility": 0}' \
   -X POST
+
+   curl https://api.scalechain.io/v1/assets/issue \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"issuer_address":"AadV3KMMrbfShDJZSGG7KBJsejfhekq5s6", "to_address":"mmgFji6FsXP7L36p2wbKpE6SBYCDkHBJ2J", "amount":100}' \
+  -X POST 
+
+     curl https://api.scalechain.io/v1/assets/issue \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"issuer_address":"mryRiPMsHjTDEUPXvVza5jsjfZUafVuCZi", "to_address":"mmgFji6FsXP7L36p2wbKpE6SBYCDkHBJ2J", "amount":100}' \
+  -X POST 
