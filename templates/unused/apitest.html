@@ -1,0 +1,29 @@
+curl https://api.scalechain.io/v1/addresses/n31quuXGdJchX1BFXbAGCmmV1BRB7c2Ysk\
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet'
+
+  curl https://api.scalechain.io/v1/accounts/send \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: mainnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account_id":"nw4ddtkAgkHxbK5uu", "to_address":"mfzVMPSMdpupMUG8RKocXGhqu1f3ERsd6P", "amount":0.0001}' \
+  -X POST
+
+curl https://api.scalechain.io/v1/addresses/n1v1Z54SmXYS1qt3TTen2ToLp9BfMYux72\
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet'
+
+
+ curl https://api.scalechain.io/v1/assets/issue \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"issuer_address":"n31quuXGdJchX1BFXbAGCmmV1BRB7c2Ysk", "to_address":"bX2wJxZBCmDLu6iYty86kjbnK1AeketkfLR", "amount":100}' \
+  -X POST 
+
+  curl https://api.scalechain.io/v1/assets/definition \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"issuer_address":"bX2wJxZBCmDLu6iYty86kjbnK1AeketkfLR", "to_address":"bWysoGVx3NkuYC1NLxRotzLBNrAGZxckfph", "metadata":{"name_short": "SMPL", "name": "Sample Stock", "issuer": "Sample, Inc.", "description": "This is a sample stock.", "type": "Stock", "divisibility": 0}' \
+  -X POST
