@@ -1,0 +1,24 @@
+Account
+  Send Coin
+
+  curl https://api.scalechain.io/v1/accounts/send \
+  -H 'Authorization: Bearer d4a9e0527b1b7fb1b121af42bd157ace5a8d37aa' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account_id":"yrh4ebgRNFKnvBhk5", "to_address":"moLfRfarLJuG6yrHc4kgDrAKS1vDY1bZUE", "amount":500000}' \
+  -X POST
+
+Address
+ Get Address
+
+ curl https://api.scalechain.io/v1/addresses/moLfRfarLJuG6yrHc4kgDrAKS1vDY1bZUE \
+  -H 'Authorization: Bearer d4a9e0527b1b7fb1b121af42bd157ace5a8d37aa' \
+  -H 'Network: testnet'
+
+ curl https://api.scalechain.io/v1/addresses/mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6 \
+  -H 'Authorization: Bearer d4a9e0527b1b7fb1b121af42bd157ace5a8d37aa' \
+  -H 'Network: testnet'
+
+ curl https://api.scalechain.io/v1/addresses/n2a62zmN83Gn3hGJMJhZGPfH1RKXUYbdMc \
+  -H 'Authorization: Bearer d4a9e0527b1b7fb1b121af42bd157ace5a8d37aa' \
+  -H 'Network: testnet'
