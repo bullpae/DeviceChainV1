@@ -1,4 +1,6 @@
-<h1>DeviceChain Node State</h1>
+<div class="page-header">
+  <h1>DeviceChain Nodes</h1>
+</div>
 <!--form role='form'>
   <div class='form-group'>
     <div class="input-group">
@@ -12,22 +14,24 @@
 
 <button ng-click="getAuth()" class='btn btn-success'>GET DC KEY</button>
 <div class="container">
-  <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Host</th>
-          <th>Port</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody ng-repeat="dc_node in dc_list">
-        <tr class="success">
-          <td>{{ dc_node.subver}}</td>
-          <td>{{ strSplit(dc_node.addr)[0] }}</td>
-          <td>{{ strSplit(dc_node.addr)[1] }}</td>
-          <td><i class="fa fa-check-square-o"></i>{{ dc_node.status }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="well">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Host</th>
+            <th>Port</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="dc_node in dc_list">
+          <tr class="success">
+            <td>{{ dc_node.subver}}</td>
+            <td>{{ strSplit(dc_node.addr)[0] }}</td>
+            <td>{{ strSplit(dc_node.addr)[1] }}</td>
+            <td><i class="fa fa-check-square-o"></i>{{ dc_node.status }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
