@@ -1,18 +1,18 @@
 angular.module('app')
 .controller('SigninCtrl', function ($scope, UserInfoSvc, $location) {
   
-  $scope.login = function (username, password) {
-    UserInfoSvc.login(username, password)
+  $scope.signin = function (username, password) {
+    UserInfoSvc.signin(username, password)
     .then(function (user) {
-      $scope.$emit('login', user)
+      $scope.$emit('signin', user)
       $location.path('/')
     })
   }
   
-  $scope.logout = function (username, password) {
-    UserInfoSvc.login('', '')
+  $scope.logout = function () {
+    UserInfoSvc.signout()
     .then(function (user) {
-      $scope.$emit('logout', user)
+      $scope.$emit('signout', user)
       $location.path('/')
     })
   }
