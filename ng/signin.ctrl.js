@@ -1,8 +1,8 @@
 angular.module('app')
-.controller('SigninCtrl', function ($scope, UserSvc, $location) {
+.controller('SigninCtrl', function ($scope, UserInfoSvc, $location) {
   
   $scope.login = function (username, password) {
-    UserSvc.login(username, password)
+    UserInfoSvc.login(username, password)
     .then(function (user) {
       $scope.$emit('login', user)
       $location.path('/')
@@ -10,7 +10,7 @@ angular.module('app')
   }
   
   $scope.logout = function (username, password) {
-    UserSvc.login('', '')
+    UserInfoSvc.login('', '')
     .then(function (user) {
       $scope.$emit('logout', user)
       $location.path('/')

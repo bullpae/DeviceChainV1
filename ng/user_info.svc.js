@@ -1,14 +1,14 @@
 angular.module('app')
-.service('UserSvc', function ($http) {
+.service('UserInfoSvc', function ($http) {
   var svc = this
   svc.getUser = function () {
-    return $http.get('/api/users')
+    return $http.get('/api/user_info')
     .then(function (response) {
       return response.data
     })
   }
 
-  svc.login = function (username, password) {
+  svc.signin = function (username, password) {
     console.log("logint proc 5 %s %s", username, password)
 
     return $http.post('/api/sessions', {
@@ -20,9 +20,9 @@ angular.module('app')
     })
   }
 
-  svc.signup = function (username, password) {
-    return $http.post('/api/users', {
-      username: username, password: password
+  svc.signup = function (username, password, usertype) {
+    return $http.post('/api/user_info', {
+      username: username, password: password, usertype: usertype
     }).then(function () {
       return svc.signin(username, password)
     })

@@ -18,6 +18,6 @@ angular.module('app')
   .when('/signup', { controller: 'SignupCtrl', templateUrl: '/templates/Signup.html' })
   .when('/signin', { controller: 'SigninCtrl', templateUrl: '/templates/Signin.html' })
 
-  .when('/cert_test',    { controller: 'LoginCtrl', templateUrl: '/templates/cert_test.html' })
-  .when('/cert_device',    { controller: 'LoginCtrl', templateUrl: '/templates/cert_device.html' })
+  .when('/cert_test',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_test.html' })
+  .when('/cert_device',    { controller: 'SignCtrl', templateUrl: '/templates/cert_device.html' })
 })

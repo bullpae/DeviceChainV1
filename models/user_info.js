@@ -4,4 +4,4 @@ var user = db.Schema({
   password: { type: String, required: true, select: false },
   usertype: { type: String, required: true }
 })
-module.exports = db.model('User', user)
+module.exports = db.model('UserInfo', user)
