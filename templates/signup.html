@@ -1,0 +1,19 @@
+<form ng-submit="signup(username, password, usertype)">
+  <div class="form-group">
+    <label>Username</label>
+    <input class="form-control" type="text" ng-model="username">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control" type="password" ng-model="password">
+  </div>
+  <div class="form-group">
+    <label class="radio-inline">
+      <input type="radio" name="usertype" ng-model="usertype" value="server">Server
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="usertype" ng-model="usertype" value="client" checked="checked">Client
+    </label>
+  </div>
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="Signup">
+</form>
