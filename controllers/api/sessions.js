@@ -14,8 +14,6 @@ router.post('/sessions', function (req, res, next) {
   User.findOne({username: username})
   .select('password')
   .exec(function (err, user) {
-       console.log("session post 2")
-
     if (err) { return next(err) }
     if (!user) { return res.sendStatus(401) }
     bcrypt.compare(req.body.password, user.password, function (err, valid) {
@@ -23,8 +21,6 @@ router.post('/sessions', function (req, res, next) {
       if (!valid) { return res.sendStatus(401) }
       var token = jwt.encode({username: username}, config.secret)
       res.send(token)
-
-         console.log("session post 3")
     })
   })
 })
