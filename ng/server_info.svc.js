@@ -1,6 +1,15 @@
 angular.module('app')
 .service('ServerInfoSvc', function ($http) {
+  var server_one
   var svc = this
+  svc.get = function () {
+    return server_one
+  }
+
+  svc.set = function (server) {
+    server_one = server
+  }
+
   svc.register = function (servername, option) {
     // Get SC account info
     console.log("start get sc info")

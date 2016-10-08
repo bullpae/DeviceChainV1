@@ -18,7 +18,9 @@
       <tbody ng-repeat="device in device_list">
         <tr class="success">
           <td>{{ device.devicetype }}</td>
-          <td>{{ device.deviceid }}</td>
+          <td>
+            <a href="/#/device_detail" ng-click="send_device(device)"> {{ device.deviceid }} </a>
+          </td>
           <td>{{ device.createdate }}</td>
           <td><button type="button" class="btn btn-default" ng-click="delete_device(device)"><i class="fa fa-trash-o"></i></button></td>
           <!--td><i class="fa fa-trash-o" ng-click="delete_device(device)" aria-label="Delete" role="button"></i></td-->

@@ -18,4 +18,10 @@ angular.module('app')
       })
     }
   }
+
+  $scope.send_device = function (device) {
+    console.log("send_device")
+    console.log(device)
+    DeviceInfoSvc.set(device)
+  }
 })
