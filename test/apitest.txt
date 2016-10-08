@@ -1,0 +1,70 @@
+1. Create Account
+
+curl https://api.scalechain.io/v1/accounts/new \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account":{"name":"kkk admin", "identifier":"Optional"}}' \
+  -X POST
+
+result:
+{"_id":"abZLZYwZjS4kkojya","name":"kkk admin","identifier":"Optional","created_at":"2016-10-08T05:15:32.382Z"}
+
+2. Create Asset Issuer Address
+
+curl https://api.scalechain.io/v1/addresses/new \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account_id":"abZLZYwZjS4kkojya", "watch_only":false}' \
+  -X POST
+
+result:
+{"_id":"t2oq7yupGyQ84YTYW","public_key":"mgWfs8EjFrChycktEu7Fuvoiria3swUx6Y","asset_address":"bWrUZ7J44jL6PqrvFHXDSZniJCKkDofsSYX","watch_only":false,"network":"testnet","created_at":"2016-10-08T05:17:08.590Z"}
+
+3. Get Coins
+https://testnet.manu.backend.hamburg/faucet
+
+retult:
+Sent! TX ID: 19f2d1d9f8b1465c7aabd6e71d3b6b34c19893ea450d47b7eed8ea9b43e80531
+Sent! TX ID: e7c6cec8bcee1f4e07cda7723cfa34f14622f9973a7012f2b661ee1b10f72977
+Sent! TX ID: 25ebe04e7c6a1c09e15eceece89c3cfbb15de7b58bf0428f69cb586bd249451c
+
+
+4. Create Receiving Address
+
+curl https://api.scalechain.io/v1/addresses/new \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account_id":"abZLZYwZjS4kkojya", "watch_only":false}' \
+  -X POST
+
+result:
+{"_id":"BYBWDtnpKQpYru9Fj","public_key":"mnrMLqNxwFy1XhUVFjr4tSDacT3nPPbeSY","asset_address":"bWxpEb1CJQjrhPwdrJMxFYJ89x4DxMaEf6r","watch_only":false,"network":"testnet","created_at":"2016-10-08T05:23:09.436Z"}
+
+
+5. Create Asset Definition
+
+curl https://api.scalechain.io/v1/assets/definition \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"issuer_address":"bWrUZ7J44jL6PqrvFHXDSZniJCKkDofsSYX", "to_address":"bWxpEb1CJQjrhPwdrJMxFYJ89x4DxMaEf6r", "metadata":{"name_short": "TEST", "name": "Test Stock", "issuer": "Test, Inc.", "description": "This is a test stock.", "type": "Stock", "divisibility": 0}' \
+  -X POST
+
+result:
+Bad Request
+
+
+6. Issue Asset Quantity
+
+curl https://api.scalechain.io/v1/assets/issue \
+  -H 'Authorization: Bearer 98fc7490af204a19f79e091db4b45260237c826f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"issuer_address":"bWrUZ7J44jL6PqrvFHXDSZniJCKkDofsSYX", "to_address":"bWxpEb1CJQjrhPwdrJMxFYJ89x4DxMaEf6r", "amount":100000}' \
+  -X POST
+
+result:
+{"unsigned_tx_hex":"01000000013105e8439bead8eeb7470d45ea9398c1346b3b1de7d6ab7a5c46b1f8d9d1f2190000000000ffffffff0358020000000000001976a914507405f194d0804d00c0610716b75d57a595649e88ac00000000000000000b6a094f41010001a08d060088f87e0f000000001976a9140aea692f3b03501308620b48834a9d976388ae8588ac00000000","asset_id":"AXQmjthAhTtPcG7SCK27mUxj9ruC2WYA7w"}
