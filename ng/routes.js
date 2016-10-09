@@ -20,5 +20,5 @@ angular.module('app')
   .when('/user_detail', { controller: 'UserDetailCtrl', templateUrl: '/templates/user_detail.html' })
 
   .when('/cert_test',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_test.html' })
-  .when('/cert_device',    { controller: 'SignCtrl', templateUrl: '/templates/cert_device.html' })
+  .when('/cert_device',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_device.html' })
 })
