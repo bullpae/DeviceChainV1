@@ -1,5 +1,5 @@
-angular.module('app')
-.service('UserInfoSvc', function ($http, $location) {
+angular.module("app")
+.service("UserInfoSvc", function ($http, $location) {
   var svc = this
   svc.token = ""
   var currentuser = null
@@ -13,7 +13,7 @@ angular.module('app')
   }
   
   svc.getUser = function () {
-    return $http.get('/api/user_info')
+    return $http.get("/api/user_info")
     .then(function (response) {
       return response.data
     })
@@ -32,28 +32,29 @@ angular.module('app')
   svc.signin = function (userid, password) {
     console.log("logint proc 5 %s %s", userid, password)
 
-    return $http.post('/api/sessions', {
+    return $http.post("/api/sessions", {
       userid: userid, password: password
     }).then(function (response) {
       console.log("recv token:")
       console.log(response.data)
       svc.token = response.data
-      $http.defaults.headers.common['X-Auth'] = response.data
+      $http.defaults.headers.common["X-Auth"] = response.data
       return svc.getUser()
     })
   }
   
   svc.signout = function () {
     svc.settoken("")
-    $location.path('/#/Signin') 
+    $location.path("/signin") 
   }
 
   svc.signup = function (username, userid, password, usertype) {
-    return $http.post('/api/user_info', {
+    return $http.post("/api/user_info", {
       username: username, userid: userid, password: password, usertype: usertype
     }).then(function () {
       console.log("succ signup")
-      // return svc.signin(userid, password)
+      //return svc.signin(userid, password)
+      $location.path("/signin")
     })
   }
 })
