@@ -1,8 +1,8 @@
 angular.module('app')
 .controller('SigninCtrl', function ($scope, UserInfoSvc, $location) {
   
-  $scope.signin = function (username, password) {
-    UserInfoSvc.signin(username, password)
+  $scope.signin = function (userid, password) {
+    UserInfoSvc.signin(userid, password)
     .then(function (user) {
       console.log("succ signin:")
       console.log(user)

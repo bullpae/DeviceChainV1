@@ -29,11 +29,11 @@ angular.module('app')
     svc.token = token
   }
 
-  svc.signin = function (username, password) {
-    console.log("logint proc 5 %s %s", username, password)
+  svc.signin = function (userid, password) {
+    console.log("logint proc 5 %s %s", userid, password)
 
     return $http.post('/api/sessions', {
-      username: username, password: password
+      userid: userid, password: password
     }).then(function (response) {
       console.log("recv token:")
       console.log(response.data)
@@ -48,11 +48,12 @@ angular.module('app')
     $location.path('/#/Signin') 
   }
 
-  svc.signup = function (username, password, usertype) {
+  svc.signup = function (username, userid, password, usertype) {
     return $http.post('/api/user_info', {
-      username: username, password: password, usertype: usertype
+      username: username, userid: userid, password: password, usertype: usertype
     }).then(function () {
-      return svc.signin(username, password)
+      console.log("succ signup")
+      // return svc.signin(userid, password)
     })
   }
 })

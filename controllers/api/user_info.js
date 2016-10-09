@@ -9,7 +9,7 @@ router.get('/user_info', function (req, res, next) {
     return res.sendStatus(401)
   }
   var auth = jwt.decode(req.headers['x-auth'], config.secret)
-  User.findOne({username: auth.username}, function (err, user) {
+  User.findOne({userid: auth.userid}, function (err, user) {
     if (err) { return next(err) }
     res.json(user)
   })
@@ -18,7 +18,7 @@ router.get('/user_info', function (req, res, next) {
 router.post('/user_info', function (req, res, next) {
   console.log(req.body)
   
-  var user = new User({username: req.body.username, usertype: req.body.usertype})
+  var user = new User({username: req.body.username, userid: req.body.userid, usertype: req.body.usertype})
   bcrypt.hash(req.body.password, 10, function (err, hash) {
     if (err) { return next(err) }
     user.password = hash
@@ -27,6 +27,10 @@ router.post('/user_info', function (req, res, next) {
       res.sendStatus(201)
     })
   })
+  
+  // router.delete('/user_info/' + userid, function (req, res, next) {
+    
+  // })
 })
 
 module.exports = router
