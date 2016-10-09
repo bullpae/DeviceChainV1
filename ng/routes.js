@@ -15,8 +15,8 @@ angular.module('app')
   .when('/cert_info',{ controller: 'CertInfoCtrl', templateUrl: '/templates/cert/cert_info.html' })
   .when('/cert_reg',{ controller: 'CertRegCtrl', templateUrl: '/templates/cert/cert_reg.html' })
   
-  .when('/signup', { controller: 'SignupCtrl', templateUrl: '/templates/Signup.html' })
-  .when('/signin', { controller: 'SigninCtrl', templateUrl: '/templates/Signin.html' })
+  .when('/signup', { controller: 'SignupCtrl', templateUrl: '/templates/signup.html' })
+  .when('/signin', { controller: 'SigninCtrl', templateUrl: '/templates/signin.html' })
   .when('/user_detail', { controller: 'UserDetailCtrl', templateUrl: '/templates/user_detail.html' })
 
   .when('/cert_test',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_test.html' })
