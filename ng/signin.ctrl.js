@@ -4,15 +4,18 @@ angular.module('app')
   $scope.signin = function (username, password) {
     UserInfoSvc.signin(username, password)
     .then(function (user) {
+      console.log("succ signin:")
+      console.log(user)
       $scope.$emit('signin', user)
       $location.path('/')
+      console.log("end signin")
     })
   }
   
-  $scope.logout = function () {
+  $scope.signout = function () {
     UserInfoSvc.signout()
-    .then(function (user) {
-      $scope.$emit('signout', user)
+    .then(function () {
+      $scope.$emit('signout')
       $location.path('/')
     })
   }

@@ -40,9 +40,17 @@
         <li><a class='block' href='/#/cert_test'>인증 테스트</a></li>
       </ul>
     <ul class='nav navbar-nav navbar-right'>
-      <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p>
-      <li><a href="/#/signin#"><i class="fa fa-sign-in"></i> Sign in</a></li>
-      <li><a href="/#/signup#"><i class="fa fa-user-plus"></i> Sign up</a></li>
+      <p ng-if='currentUser' class='navbar-text'> Signed in as {{currentUser.username}} </p> 
+      <!--li ng-hide="issignedin()"><a href="/#/signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
+      <li ng-show="issignedin()"><a href="/#/signin" ng-click="signout()"><i class="fa fa-sign-out"></i> Sign out</a></li> 
+      <li ng-hide="issignedin()"><a href="/#/signup"><i class="fa fa-user-plus"></i> Sign up</a></li> 
+      <li ng-show="issignedin()"><a href="/#/signup"><i class="fa fa-user-secret"></i> User</a></li--> 
+      
+      <li ng-if="currentUser == null"><a href="/#/signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
+      <li ng-if="currentUser"><a href="/#/signin" ng-click="signout()"><i class="fa fa-sign-out"></i> Sign out</a></li> 
+      <li ng-if="currentUser == null"><a href="/#/signup"><i class="fa fa-user-plus"></i> Sign up</a></li> 
+      <li ng-if="currentUser"><a href="/#/user_detail" ng-click="userdetail(currentUser)"><i class="fa fa-user-secret"></i> User</a></li>
+
       <!--a class="btn btn-info pull-left" href="/#/login"><i class="fa fa-sign-in"></i> Login</a-->
       <!--a class="btn btn-info pull-left" href="/#/register"><i class="fa fa-user-plus"></i> Register</a-->
     </ul>

@@ -8,7 +8,7 @@ var User   = require('../../models/user_info')
 // In this code it's mounted at '/api' and is router.post('/sessions'
 // Either way will be fine, but the full URL should be '/api/sessions'
 router.post('/sessions', function (req, res, next) {
-   console.log("session post 1")
+   console.log("session post 1 %s %s", req.body.username, req.body.password)
 
   var username = req.body.username
   User.findOne({username: username})
@@ -16,10 +16,17 @@ router.post('/sessions', function (req, res, next) {
   .exec(function (err, user) {
     if (err) { return next(err) }
     if (!user) { return res.sendStatus(401) }
-    bcrypt.compare(req.body.password, user.password, function (err, valid) {
-      if (err) { return next(err) }
+    
+    console.log("user.password: %s", user.password)
+    bcrypt.compare(req.body.password, user.password, function (bcrypt_err, valid) {
+      if (bcrypt_err) { return next(err) }
+      console.log("no error")
       if (!valid) { return res.sendStatus(401) }
+      console.log("valid")
       var token = jwt.encode({username: username}, config.secret)
+      
+      console.log("get token")
+      console.log(token)
       res.send(token)
     })
   })
