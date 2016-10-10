@@ -1,0 +1,22 @@
+<h1 class="text-center">Sign in</h1>
+<form ng-submit="signin(userid, password)">
+  <div class="form-group">
+    <div class="input-group">
+      <!--label>Username</label-->
+      <span class="input-group-addon">
+        <i class="fa fa-user"></i>
+      </span>
+      <input class="form-control input-lg" type="text" ng-model="userid" placeholder="User ID">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <!--label>Password</label-->
+      <span class="input-group-addon">
+        <i class="fa fa-asterisk"></i>
+      </span>
+      <input class="form-control input-lg" type="password" ng-model="password" placeholder="Password">
+    </div>
+  </div>
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="Sign in">
+</form>

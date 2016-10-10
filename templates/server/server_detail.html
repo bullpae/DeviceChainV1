@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>서버 정보</h1>
+  <h1>서버 상세 정보</h1>
 </div>
 <div class="container">
   <div class="well">
@@ -16,7 +16,7 @@
       <tbody ng-repeat="server in server_list">
         <tr class="success">
           <td>
-            <a href="/#/api/server/server_info/{{server.serverid}}" ng-click="send_server(server)"> {{ server.servername }} </a>
+            <a href="/#/api/server/server_info/{{server.serverid}}"> {{ server.servername }} </a>
           </td>
           <td>{{ server.option }}</td>
           <td>{{ server.serverid }}</td>

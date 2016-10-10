@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html ng-app='app'>
   <head>
+    <title> DeviceChain Pate</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/eeb72cb88a.js"></script>
     <!--link rel='stylesheet' href='/app.css'-->
-  </head>
-  <body ng-controller='ApplicationCtrl'>
-    <!--header ng-include="'/templates/topmenu.html'"></header>
-    
-    <div class='container' ng-view></div>
-    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.js'></script>
-    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular-route.js'></script>
-    <script src='/app.js'></script>
-    <footer ng-include="'/templates/footer.html'"></footer-->
+    <!--link href="/css/styles.css" rel="stylesheet" type="text/css"> </style-->
 
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller='ApplicationCtrl'>
     <header ng-include="'/templates/topmenu.html'"></header>
     <div class='container' ng-view></div>
     <footer ng-include="'/templates/footer.html'"></footer>
-    
+
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.js'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular-route.js'></script>
     <script src='/app.js'></script>

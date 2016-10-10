@@ -1,0 +1,36 @@
+<h1 class="text-center">Join<b> Device</b><i class="fa fa-chain"></i>Chain</h1>
+<form ng-submit="signup(username, userid, password, usertype)">
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-info"></i>
+      </span>
+      <input class="form-control input-lg" type="text" ng-model="username" placeholder="User Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-user"></i>
+      </span>
+      <input class="form-control input-lg" type="text" ng-model="userid" placeholder="User ID">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-asterisk"></i>
+      </span>
+      <input class="form-control input-lg" type="password" ng-model="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="radio-inline">
+      <input type="radio" name="optradio" ng-model="usertype" value="admin">Admin
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio" ng-model="usertype" value="device" checked="checked">Device
+    </label>
+  </div>
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="Sign up">
+</form>

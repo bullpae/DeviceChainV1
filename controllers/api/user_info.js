@@ -1,25 +1,24 @@
 var router = require('express').Router()
 var bcrypt = require('bcrypt')
 var jwt    = require('jwt-simple')
-var User   = require('../../models/user')
+var User   = require('../../models/user_info')
 var config = require('../../config')
 
-router.get('/users', function (req, res, next) {
-  console.log("user get 1")
-
+router.get('/user_info', function (req, res, next) {
   if (!req.headers['x-auth']) {
     return res.sendStatus(401)
   }
   var auth = jwt.decode(req.headers['x-auth'], config.secret)
-  User.findOne({username: auth.username}, function (err, user) {
+  User.findOne({userid: auth.userid}, function (err, user) {
     if (err) { return next(err) }
     res.json(user)
   })
 })
 
-router.post('/users', function (req, res, next) {
-   console.log("user post 1")
-  var user = new User({username: req.body.username})
+router.post('/user_info', function (req, res, next) {
+  console.log(req.body)
+  
+  var user = new User({username: req.body.username, userid: req.body.userid, usertype: req.body.usertype})
   bcrypt.hash(req.body.password, 10, function (err, hash) {
     if (err) { return next(err) }
     user.password = hash
@@ -28,6 +27,10 @@ router.post('/users', function (req, res, next) {
       res.sendStatus(201)
     })
   })
+  
+  // router.delete('/user_info/' + userid, function (req, res, next) {
+    
+  // })
 })
 
 module.exports = router

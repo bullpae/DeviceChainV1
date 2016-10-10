@@ -1,6 +1,16 @@
 angular.module('app')
 .service('DeviceInfoSvc', function ($http) {
+  var device_one
+
   var svc = this
+  svc.get = function () {
+    return device_one
+  }
+
+  svc.set = function (device) {
+    device_one = device 
+  }
+  
   svc.register = function (devicetype, deviceid) {
     // Get device info
     console.log("start get device")
