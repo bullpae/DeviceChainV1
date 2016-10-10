@@ -39,9 +39,19 @@ angular.module("app")
       console.log(response.data)
       svc.token = response.data
       $http.defaults.headers.common["X-Auth"] = response.data
+      svc.getDcAuth() // Get SC API 
       return svc.getUser()
     })
   }
+  
+  svc.getDcAuth = function () {
+    console.log("get sc api token->user_info.svc.js")
+    return $http.get('/api/dcauth')
+    .then(function (res) {
+      console.log("succ get sc api token")
+      return res;
+    })
+  } 
   
   svc.signout = function () {
     svc.settoken("")
