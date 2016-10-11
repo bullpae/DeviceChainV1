@@ -2,6 +2,8 @@ angular.module('app')
 .controller('ApplicationCtrl', function ($scope, UserInfoSvc) {
   // $scope.logBtnText = 'Login';
   $scope.$on('signin', function (_, user) {
+    console.log("event signin app ctrl")
+    UserInfoSvc.getDcAuth() // Get SC API
     $scope.currentUser = user;
   })
   

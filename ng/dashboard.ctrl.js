@@ -6,9 +6,9 @@ angular.module('app')
   //   {"name":"test3", "host":"192.168.10.20", "port":"9999", "status":"OK"},
   // ]
 
-  $scope.getAuth = function () {
-    DashboardSvc.getDcAuth();
-  }
+  // $scope.getAuth = function () {
+  //   DashboardSvc.getDcAuth();
+  // }
 
   DashboardSvc.getNode()
   .then(function (dc_nodes) {
