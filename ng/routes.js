@@ -14,7 +14,7 @@ angular.module('app')
   // cert
   .when('/cert_info',{ controller: 'CertInfoCtrl', templateUrl: '/templates/cert/cert_info.html' })
   .when('/cert_reg',{ controller: 'CertRegCtrl', templateUrl: '/templates/cert/cert_reg.html' })
-  
+  //  
   .when('/signup', { controller: 'SignupCtrl', templateUrl: '/templates/signup.html' })
   .when('/signin', { controller: 'SigninCtrl', templateUrl: '/templates/signin.html' })
   .when('/user_info', { controller: 'UserInfoCtrl', templateUrl: '/templates/user_info.html' })
