@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('ApplicationCtrl', function ($scope, UserInfoSvc) {
+.controller('ApplicationCtrl', function ($scope, UserInfoSvc, $location) {
   // $scope.logBtnText = 'Login';
   $scope.$on('signin', function (_, user) {
     console.log("event signin app ctrl")
@@ -39,6 +39,7 @@ angular.module('app')
   $scope.userdetail = function () {
     console.log("set current user: ")
     console.log($scope.currentUser)
-    UserInfoSvc.setcurrentuser($scope.currentUser)
+    UserInfoSvc.setselectuser($scope.currentUser)
+    $location.path('/user_detail') // reload??
   }
 })

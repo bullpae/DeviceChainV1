@@ -2,8 +2,8 @@ angular.module("app")
 .service("UserInfoSvc", function ($http, $location) {
   var svc = this
   svc.token = ""
-  var currentuser = null
   
+  var currentuser = null
   svc.getcurrentuser = function () {
     return currentuser
   }
@@ -12,8 +12,17 @@ angular.module("app")
     currentuser = user
   }
   
-  svc.getUser = function () {
-    return $http.get("/api/user_info")
+  var selectuser = null
+  svc.getselectuser = function () {
+    return selectuser 
+  }
+
+  svc.setselectuser= function (user) {
+    selectuser = user 
+  }
+  
+  svc.getUser = function (userid) {
+    return $http.get("/api/user_info/" + userid)
     .then(function (response) {
       return response.data
     })
@@ -40,13 +49,13 @@ angular.module("app")
       svc.token = response.data
       $http.defaults.headers.common["X-Auth"] = response.data
       // svc.getDcAuth() // Get SC API 
-      return svc.getUser()
+      return svc.getUser(userid)
     })
   }
   
   svc.getDcAuth = function () {
     console.log("get sc api token->user_info.svc.js")
-    return $http.get('/api/dcauth')
+    return $http.get("/api/dcauth")
     .then(function (res) {
       console.log("succ get sc api token")
       return res;
@@ -65,6 +74,24 @@ angular.module("app")
       console.log("succ signup")
       //return svc.signin(userid, password)
       $location.path("/signin")
+    })
+  }
+
+  svc.fetch = function () {
+    console.log("start fetch!!")
+    var uid = "" 
+    return $http.get("/api/user_info/" + uid)
+    .then(function (response) {
+      console.log(response.data)
+      
+      return response.data
+    })
+  }
+
+  svc.delete_user = function (user) {
+    return $http.delete("api/user_info/" + user.userid)
+    .then (function (res) {
+        console.log("delete user info")
     })
   }
 })

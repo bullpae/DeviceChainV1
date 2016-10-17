@@ -3,7 +3,7 @@ angular.module('app')
 
   var recv_user = function () {
     console.log("recv_user")
-    $scope.user = UserInfoSvc.getcurrentuser()
+    $scope.user = UserInfoSvc.getselectuser()
     console.log($scope.user)
   }
 

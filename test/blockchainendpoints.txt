@@ -1,0 +1,40 @@
+1. REQUEST THE LATEST
+
+curl https://api.scalechain.io/v1/blocks/latest \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+  
+ RESPONSE
+ 
+ {
+ "hash":"000000000064648902a7e884108c36e3668efa0d396490c0b1909bccb7346b99",
+ "confirmations":1,
+ "size":262,
+ "height":990621,
+ "version":536870912,
+ "merkleroot":"0c2e04227a7a39261e1889594f27d9d2321be44a0cab39b254a6ba16d1ce0f89",
+ "tx":["0c2e04227a7a39261e1889594f27d9d2321be44a0cab39b254a6ba16d1ce0f89"],
+ "time":1476622094,
+ "mediantime":1476620658,
+ "nonce":1765833978,
+ "bits":"1d00ffff",
+ "difficulty":1,
+ "chainwork":"000000000000000000000000000000000000000000000017dab3145021cfec2f",
+ "previousblockhash":"0000000000ca47113421005ca9a36400e0d761c49784106d2f2eb40fb8c7581c"
+ }
+ 
+ 2. Transaction
+ 
+ curl https://api.scalechain.io/v1/transactions/000000000064648902a7e884108c36e3668efa0d396490c0b1909bccb7346b99 \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+  
+  
+  REQUEST WITHOUT PRIVATE KEYS AND ACCOUNT ID
+  
+  curl https://api.scalechain.io/v1/transactions/sign \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"unsigned_tx_hex": "01000000011da9283b4ddf8d89eb996988b89ead56cecdc44041ab38bf787f1206cd90b51e0000000000ffffffff01405dc600000000001976a9140dfc8bafc8419853b34d5e072ad37d1a5159f58488ac00000000"}' \
+  -X POST

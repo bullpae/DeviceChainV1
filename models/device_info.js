@@ -1,7 +1,7 @@
 var db = require('../db')
 var ServerInfo = db.model('DeviceInfo', {
   devicetype: { type: String, required: false },
-  deviceid: { type: String, required: true },
+  deviceid: { type: String, required: true, unique: true },
   serverid: { type: String, required: false },
   public_key: { type: String, required: false },
   asset_address: { type: String, required: false},
