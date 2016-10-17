@@ -38,3 +38,222 @@ curl https://api.scalechain.io/v1/blocks/latest \
   -H 'Content-Type: application/json' \
   -d '{"unsigned_tx_hex": "01000000011da9283b4ddf8d89eb996988b89ead56cecdc44041ab38bf787f1206cd90b51e0000000000ffffffff01405dc600000000001976a9140dfc8bafc8419853b34d5e072ad37d1a5159f58488ac00000000"}' \
   -X POST
+  
+3. Address
+ Get Address
+ 
+ REQUEST
+ curl https://api.scalechain.io/v1/addresses/mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6 \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+  
+ RESPONSE
+ {
+ "address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6",
+ "balance":7.2187256600000005,
+ "received":7.21872566,
+ "sent":-8.881784197001252e-16
+ }
+ 
+ {
+ "address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6",
+ "balance":7.21352566,
+ "received":9.41352566,
+ "sent":2.1999999999999993
+ }
+ 
+ REQUEST
+ curl https://api.scalechain.io/v1/addresses/mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+  
+ RESPONSE
+ {
+ "address":"mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g",
+ "balance":0,
+ "received":0,
+ "sent":0
+ }
+ 
+ Get Address Transactions
+ 
+ REQUEST 
+ curl https://api.scalechain.io/v1/addresses/mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6/transactions?limit=2 \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+ 
+ RESPONSE
+ [
+ {
+ "account":"yrh4ebgRNFKnvBhk5",
+ "address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6",
+ "category":"receive",
+ "amount":2.2,
+ "label":"yrh4ebgRNFKnvBhk5",
+ "vout":0,
+ "confirmations":21113,
+ "blockhash":"000000000000032bea6dec548e80385452e88f49313658380bbb681c672dcc4a",
+ "blockindex":4,
+ "blocktime":1475712393,
+ "txid":"4c96601e76c9e873f250406a6ca907f665792c190f4022f34542905fbe672e36",
+ "walletconflicts":[],
+ "time":1475709034,
+ "timereceived":1475709034,
+ "bip125-replaceable":"no"
+ },
+ {
+ "account":"yrh4ebgRNFKnvBhk5",
+ "address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6",
+ "category":"receive",
+ "amount":1.1,
+ "label":"yrh4ebgRNFKnvBhk5",
+ "vout":0,
+ "confirmations":21113,
+ "blockhash":"000000000000032bea6dec548e80385452e88f49313658380bbb681c672dcc4a",
+ "blockindex":6,
+ "blocktime":1475712393,
+ "txid":"db4d1d1240bb9300b3c8e8c3b71b2a9d991db7cbb9e80351daf2dd7ee845369a",
+ "walletconflicts":[],
+ "time":1475709989,
+ "timereceived":1475709989,
+ "bip125-replaceable":"no"
+ }
+ ]
+ 
+ REQUEST 
+ curl https://api.scalechain.io/v1/addresses/mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g/transactions?limit=2 \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+ 
+ RESPONSE
+ [] => No Transactions
+ 
+ Get Address Unspent Outputs
+ 
+ REQUEST
+ curl https://api.scalechain.io/v1/addresses/mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6/unspents \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+ 
+ RESPONSE
+ [{"txid":"1d68c2f2c5de0b0692244711a8a5d40c7ee34879c654f2e35f11f02baee1dd09","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.0005371,"confirmations":21107,"spendable":true},{"txid":"1e311d06fd5e963378b9d29df188cf92059383ce1882fd0a94db8c8dc8c8f91c","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":2.2,"confirmations":21044,"spendable":true},{"txid":"4c96601e76c9e873f250406a6ca907f665792c190f4022f34542905fbe672e36","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":2.2,"confirmations":21113,"spendable":true},{"txid":"13ae685164e8a41b8a70cdf005b1b5fe97f849a3f9165560287401fc22b43a52","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.00026855,"confirmations":21107,"spendable":true},{"txid":"3eb94c1d7552809c148d088546d2748a0a7c8196bfe4056e746ab63bdb989459","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.00859375,"confirmations":21107,"spendable":true},{"txid":"503aa3f645cd8a5103e51f59920c05b7c12ebc7096f365bec41487333571806a","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.00429687,"confirmations":21107,"spendable":true},{"txid":"384b42ad0775ef80f1073b6672d59b4d1deb3952d0fd97c1492d2366913ebb81","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.00011,"confirmations":21107,"spendable":true},{"txid":"fc86acfc5ed249bf374d02cb0bc911d454d04db9ed6360abec186531c6144e93","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.00013427,"confirmations":21107,"spendable":true},{"txid":"143ca23b635b85af54ba7d629b1ade6a1ef54b005e457f6fa6dd46021249b393","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.55,"confirmations":21044,"spendable":true},{"txid":"db4d1d1240bb9300b3c8e8c3b71b2a9d991db7cbb9e80351daf2dd7ee845369a","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":1.1,"confirmations":21113,"spendable":true},{"txid":"269b09a49c49e6f957e69a9144d1bbc84b17f6f5c20f560aa2668e44c4fb409f","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.0171875,"confirmations":21107,"spendable":true},{"txid":"228fb062172795366a98cfd1175a4d5149cecb862904f2969af4bda82e10e3b6","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.034375,"confirmations":21107,"spendable":true},{"txid":"665d6d98dd21ce553db83b0bc6b075198d2a2ae570b9f691c8c5d28abdaaedbb","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.00214842,"confirmations":21107,"spendable":true},{"txid":"bbc64364456f1725593aa5e561efa5ddf0e5b0d68ae2d2d733f3e4a986ea34d4","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":0.0010742,"confirmations":21107,"spendable":true},{"txid":"dfa04ac718ed49137493a17732b1fe4397665e68abee9a36c3030d87e89d2dde","vout":0,"address":"mjYAXp7TXyprqNj51izm3MCBwCDBU1yRE6","account":"yrh4ebgRNFKnvBhk5","scriptPubKey":"76a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac","amount":1.1,"confirmations":21044,"spendable":true}]
+ 
+ REQUEST
+ curl https://api.scalechain.io/v1/addresses/mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g/unspents \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+ 
+ RESPONSE
+ []
+  
+4. ACCOUNT
+ Send Coin
+ 
+ REQUEST
+ curl https://api.scalechain.io/v1/accounts/send \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account_id":"yrh4ebgRNFKnvBhk5", "to_address":"moLfRfarLJuG6yrHc4kgDrAKS1vDY1bZUE", "amount":500000}' \
+  -X POST
+  
+  RESPONSE
+  {
+  "unsigned_tx_hex":"0100000001362e67be5f904245f322400f192c7965f607a96c6a4050f273e8c9761e60964c0000000000ffffffff0220a10700000000001976a91455cec3ec27eaff9d8641db34e537fe81862cc2c488acc0ff140d000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000"
+  }
+ 
+  REQUEST
+  curl https://api.scalechain.io/v1/accounts/send \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"account_id":"yrh4ebgRNFKnvBhk5", "to_address":"mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g", "amount":10000000}' \
+  -X POST
+
+  RESPONSE
+  {
+  "unsigned_tx_hex":"01000000011cf9c8c88d8cdb940afd8218ce83930592cf88f19dd2b97833965efd061d311e0000000000ffffffff0280969800000000001976a91469198b840f52135f4a5fcdc5588a0666175348e488ac600a840c000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000"
+  }
+
+ 2. Transaction
+  Sign Raw Transaction
+  REQUEST
+  curl https://api.scalechain.io/v1/transactions/sign \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"unsigned_tx_hex": "0100000001362e67be5f904245f322400f192c7965f607a96c6a4050f273e8c9761e60964c0000000000ffffffff0220a10700000000001976a91455cec3ec27eaff9d8641db34e537fe81862cc2c488acc0ff140d000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000"}' \
+  -X POST
+  
+  RESPONSE
+  {
+  "signed_tx_hex":"0100000001362e67be5f904245f322400f192c7965f607a96c6a4050f273e8c9761e60964c000000006b483045022100b097da7225a62fe30577ed28d60357dded820376b8bfdce307387ab1018e70b80220780f66d98dc0331e12a20fd4afb0cbd5f73c6917e72bde0a58679c2c7dceb94f012102b948091c68b95134b7770d3a660475cb946ab4058f0660b7e2ace5f2635822deffffffff0220a10700000000001976a91455cec3ec27eaff9d8641db34e537fe81862cc2c488acc0ff140d000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000",
+  "complete":true
+  }
+  
+  REQUEST
+  curl https://api.scalechain.io/v1/transactions/sign \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"unsigned_tx_hex": "01000000011cf9c8c88d8cdb940afd8218ce83930592cf88f19dd2b97833965efd061d311e0000000000ffffffff0280969800000000001976a91469198b840f52135f4a5fcdc5588a0666175348e488ac600a840c000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000"}' \
+  -X POST
+  
+  RESPONSE
+  {
+  "signed_tx_hex":"01000000011cf9c8c88d8cdb940afd8218ce83930592cf88f19dd2b97833965efd061d311e000000006b483045022100c3ff086b4ef38badcf1f40b6bb340d32c5de8243085d745e4a26cb53cc72920e02200a1a7e59f4adf8e73ce3b74ecc00baea713860789d027895b28c47809161e39a012102b948091c68b95134b7770d3a660475cb946ab4058f0660b7e2ace5f2635822deffffffff0280969800000000001976a91469198b840f52135f4a5fcdc5588a0666175348e488ac600a840c000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000",
+  "complete":true
+  }
+  
+  Send Signed Transaction
+  REQUEST
+  curl https://api.scalechain.io/v1/transactions/send \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"signed_tx_hex": "0100000001362e67be5f904245f322400f192c7965f607a96c6a4050f273e8c9761e60964c000000006b483045022100b097da7225a62fe30577ed28d60357dded820376b8bfdce307387ab1018e70b80220780f66d98dc0331e12a20fd4afb0cbd5f73c6917e72bde0a58679c2c7dceb94f012102b948091c68b95134b7770d3a660475cb946ab4058f0660b7e2ace5f2635822deffffffff0220a10700000000001976a91455cec3ec27eaff9d8641db34e537fe81862cc2c488acc0ff140d000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000"}' \
+  -X POST
+  
+  RESPONSE
+  {
+  "txid":"a8e7c69f770b73a70fb416bb1fdbcaee1bfcc9a940c927f2b5677885498a6f39"
+  }
+  
+  REQUEST
+  curl https://api.scalechain.io/v1/transactions/send \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet' \
+  -H 'Content-Type: application/json' \
+  -d '{"signed_tx_hex": "01000000011cf9c8c88d8cdb940afd8218ce83930592cf88f19dd2b97833965efd061d311e000000006b483045022100c3ff086b4ef38badcf1f40b6bb340d32c5de8243085d745e4a26cb53cc72920e02200a1a7e59f4adf8e73ce3b74ecc00baea713860789d027895b28c47809161e39a012102b948091c68b95134b7770d3a660475cb946ab4058f0660b7e2ace5f2635822deffffffff0280969800000000001976a91469198b840f52135f4a5fcdc5588a0666175348e488ac600a840c000000001976a9142c1b225c1d1f52fa1fb2f4249439e7c7b35460d288ac00000000"}' \
+  -X POST
+  
+  RESPONSE
+  {
+  "txid":"dab0c9505f13716672408265dbb06023d86fe5309e2835c441b2857da8366e30"
+  }
+  
+  REQUEST
+  curl https://api.scalechain.io/v1/addresses/moLfRfarLJuG6yrHc4kgDrAKS1vDY1bZUE \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+
+  RESPONSE
+  {
+  "address":"moLfRfarLJuG6yrHc4kgDrAKS1vDY1bZUE",
+  "balance":0.005,
+  "received":0.005,
+  "sent":0
+  }
+
+  REQUEST
+  curl https://api.scalechain.io/v1/addresses/mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g \
+  -H 'Authorization: Bearer ab66d525d11ef4bb911e63ccb1ef9a77aa7e801f' \
+  -H 'Network: testnet'
+
+  RESPONSE
+  {
+  "address":"mq6fr6LTTAMZjREGpS1VD8VA9MM22qZA7g",
+  "balance":0.1,
+  "received":0,
+  "sent":-0.1
+  }
