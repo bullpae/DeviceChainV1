@@ -14,12 +14,12 @@
         </tr>
       </thead>
       <tbody ng-repeat="account in account_list">
-        <div ng-if="account == null">
+        <div ng-if="account_list.length == 0">
           <button type="button" class="btn btn-info pull-right" ng-click="add_account()">Add Account</button>
         </div>
         <tr class="success">
           <td>
-            <a href="/#/api/account/account_info/{{account.accountid}}" ng-click="send_account(account)"> {{ account.accountname }} </a>
+            <a href="/#/api/account/account_detail" ng-click="send_account(account)"> {{ account.accountname }} </a>
           </td>
           <td>{{ account.comment }}</td>
           <td>{{ account.accountid }}</td>

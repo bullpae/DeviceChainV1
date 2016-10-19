@@ -4,6 +4,9 @@ angular.module('app')
   var refresh = function() {
     AccountInfoSvc.fetch()
     .then(function (account_list) {
+      console.log("refresh!!!")
+      console.log(account_list)
+      console.log("end refresh!!!")
       $scope.account_list = account_list
     })
   };

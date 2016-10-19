@@ -29,6 +29,7 @@ angular.module('app')
   }
 
   svc.fetch = function () {
+    console.log("account svc user: %s", currentuser.userid)
     return $http.get('/api/account/account_info/' + currentuser.userid)
     .then(function (response) {
       return response.data
