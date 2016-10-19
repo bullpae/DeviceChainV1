@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Account Informatiom</h1>
+</div>
+<div class="container">
+  <div class="well">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Account Name</th>
+          <th>Comment</th>
+          <th>Account ID</th>
+          <th>Created Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="account in account_list">
+        <div ng-if="account == null">
+          <button type="button" class="btn btn-info pull-right" ng-click="add_account()">Add Account</button>
+        </div>
+        <tr class="success">
+          <td>
+            <a href="/#/api/account/account_info/{{account.accountid}}" ng-click="send_account(account)"> {{ account.accountname }} </a>
+          </td>
+          <td>{{ account.comment }}</td>
+          <td>{{ account.accountid }}</td>
+          <td>{{ account.createdate }}</td>
+          <td><button type="button" class="btn btn-default" ng-click="delete_account(account)"><i class="fa fa-trash-o"></i></button></td>
+          <!--td><i class="fa fa-trash-o" ng-click="delete_server(server)" aria-label="Delete" role="button"></i></td-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

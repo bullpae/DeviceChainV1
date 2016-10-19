@@ -13,6 +13,7 @@ No wiredTiger Engine -> mongod --dbpath "data" --storageEngine "mmapv1"
 
 
 * Install Redis
+https://github.com/MSOpenTech/redis/releases
 https://github.com/dmajkic/redis/downloads
 http://lovedb.tistory.com/150
 redis-server

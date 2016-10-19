@@ -1,0 +1,23 @@
+<h1 class="text-center">Add Account</h1>
+<form ng-submit="register(currentUser.userid, accountname, comment)">
+  <div class="form-group">
+    <!--label>Account Name</label-->
+    <div class="input-group">
+      <span class="input-group-addon">
+      <i class="fa fa-bank"></i>
+      </span>
+      <input class="form-control input-lg" type="text" ng-model="accountname"  placeholder="Account Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <!--label>Option</label-->
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-comment"></i>
+      </span>
+      <input class="form-control input-lg" type="text" ng-model="comment" placeholder="Comment">
+    </div>
+  </div>
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="Submit">
+  <p></p> <p></p> 
+</form>

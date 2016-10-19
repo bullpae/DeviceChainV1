@@ -17,7 +17,17 @@
 
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller='ApplicationCtrl'>
-    <header ng-include="'/templates/topmenu.html'"></header>
+    <div ng-switch="currentUser.usertype">
+      <div ng-switch-when="admin">
+        <header ng-include="'/templates/topmenunode.html'"></header>
+      </div>
+      <div ng-switch-when="device">
+        <header ng-include="'/templates/topmenuclient.html'"></header>
+      </div>
+      <div ng-switch-default>
+        <header ng-include="'/templates/topmenudefault.html'"></header>
+      </div>
+    </div>
     <div class='container' ng-view></div>
     <footer ng-include="'/templates/footer.html'"></footer>
 

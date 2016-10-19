@@ -1,0 +1,44 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><b> Device</b><i class="fa fa-chain"></i>Chain </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a class="dashboard" href="/#/dashboard"><i class="fa fa-institution"></i> Node Info</a>
+        </li>
+        <li><a href="/#/account_info" ng-click="setuser_account(currentUser)">Account</a></li>
+        <!-- Device Menu -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="/#/device_info"> Device <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/#/device_reg">Device Register</a></li>
+            <li><a href="/#/device_info">Device Infomation</a></li>
+          </ul>
+        </li>      
+        <!-- Server Menu -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="/#/cert_info"> 인증 관리 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/#/cert_reg">장치 인증 정보 생성</a></li>
+            <li><a href="/#/cert_info">장치 인증 정보</a></li>
+          </ul>
+        </li> 
+        <li><a class="users" href="/#/user_info">Users</a></li>
+      </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <p ng-if="currentUser" class="navbar-text"> Signed in as <b class="user">{{currentUser.userid}}</b> </p> 
+      
+      <li ng-if="currentUser == null"><a href="/#/signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
+      <li ng-if="currentUser"><a href="/#/signin" ng-click="signout()"><i class="fa fa-sign-out"></i> Sign out</a></li> 
+      <li ng-if="currentUser == null"><a href="/#/signup"><i class="fa fa-user-plus"></i> Sign up</a></li> 
+      <li ng-if="currentUser"><a href="/#/user_detail" ng-click="userdetail(currentUser)"><i class="fa fa-user-secret"></i> User</a></li>
+    </ul>
+  </div>
+</nav>

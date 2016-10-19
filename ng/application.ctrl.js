@@ -1,9 +1,9 @@
 angular.module('app')
-.controller('ApplicationCtrl', function ($scope, UserInfoSvc, $location) {
+.controller('ApplicationCtrl', function ($scope, UserInfoSvc, AccountInfoSvc, $location) {
   // $scope.logBtnText = 'Login';
   $scope.$on('signin', function (_, user) {
     console.log("event signin app ctrl")
-    UserInfoSvc.getDcAuth() // Get SC API
+    //UserInfoSvc.getDcAuth() // Get SC API
     $scope.currentUser = user;
   })
   
@@ -41,5 +41,11 @@ angular.module('app')
     console.log($scope.currentUser)
     UserInfoSvc.setselectuser($scope.currentUser)
     $location.path('/user_detail') // reload??
+  }
+
+  $scope.setuser_account = function (user) {
+    console.log("setuser_account current user: ")
+    console.log(user)
+    AccountInfoSvc.setuser(user)
   }
 })

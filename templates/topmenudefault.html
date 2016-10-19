@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><b> Device</b><i class="fa fa-chain"></i>Chain </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right">
+      <p ng-if="currentUser" class="navbar-text"> Signed in as <b class="user">{{currentUser.userid}}</b> </p> 
+      <li ng-if="currentUser == null"><a href="/#/signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
+      <li ng-if="currentUser"><a href="/#/signin" ng-click="signout()"><i class="fa fa-sign-out"></i> Sign out</a></li> 
+      <li ng-if="currentUser == null"><a href="/#/signup"><i class="fa fa-user-plus"></i> Sign up</a></li> 
+      <li ng-if="currentUser"><a href="/#/user_detail" ng-click="userdetail(currentUser)"><i class="fa fa-user-secret"></i> User</a></li>
+    </ul>
+  </div>
+</nav>
