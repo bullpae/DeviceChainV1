@@ -28,6 +28,12 @@ angular.module('app')
     }
   }
 
+  $scope.send_account = function (account) {
+    console.log("send_account")
+    console.log(account)
+    AccountInfoSvc.set(account)
+  }
+
   // $scope.delete_account ($scope.account) {
   //   AccountInfoSvc.delete_account (account)
   //   .then(function (account_list) {

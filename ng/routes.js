@@ -6,11 +6,11 @@ angular.module('app')
   // account
   .when('/account_info',{ controller: 'AccountInfoCtrl', templateUrl: '/templates/account/account_info.html' })
   .when('/account_reg',{ controller: 'AccountRegCtrl', templateUrl: '/templates/account/account_reg.html' })
-  .when('/account_detail',{ controller: 'AccountDtailCtrl', templateUrl: '/templates/account/account_detail.html' })
+  .when('/account_detail',{ controller: 'AccountDetailCtrl', templateUrl: '/templates/account/account_detail.html' })
   // server
   .when('/server_info',{ controller: 'ServerInfoCtrl', templateUrl: '/templates/server/server_info.html' })
   .when('/server_reg',{ controller: 'ServerRegCtrl', templateUrl: '/templates/server/server_reg.html' })
-  .when('/server_detail',{ controller: 'ServerDtailCtrl', templateUrl: '/templates/server/server_detail.html' })
+  .when('/server_detail',{ controller: 'ServerDetailCtrl', templateUrl: '/templates/server/server_detail.html' })
   // device
   .when('/device_info',{ controller: 'DeviceInfoCtrl', templateUrl: '/templates/device/device_info.html' })
   .when('/device_reg',{ controller: 'DeviceRegCtrl', templateUrl: '/templates/device/device_reg.html' })

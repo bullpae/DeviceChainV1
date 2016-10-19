@@ -2,19 +2,31 @@ var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
 
 router.post('/dcaddress', function (req, res, next) {
-  console.log('dcaddress.js exe start %s', req.body.serverid)
+  console.log('dcaddress.js exe start %s', req.body.accountid)
 
   var address = ScaleChain.AddressController;
-  var serverid = req.body.serverid;
+  var accountid = req.body.accountid;
   var network = 'testnet';
 
-  address.create(serverid, network, function(err, response, request) {
+  address.create(accountid, network, function(err, response, request) {
     console.log(response);
     res.send(response)
     return res
   });
 
   console.log('dcaddress.js exe end')
+})
+
+router.delete("/dcaddress/:public_key", function (req, res, next) {
+  console.log("del address: %s", req.params.public_key)
+  
+  var address = ScaleChain.AddressController;
+  var key= req.params.public_key;
+  var network = 'testnet';
+
+  address.delete(key, network, function(err, response, request) {
+    console.log(res);
+  });
 })
 
 // curl https://api.scalechain.io/v1/addresses/new \

@@ -4,15 +4,26 @@
 <div class="container">
   <div class="well">
     <dl class="dl-horizontal">
-      <dt> devicetype </dt> <dd> {{device.devicetype}} </dd>
-      <dt> deviceid </dt> <dd> {{device.deviceid}} </dd>
-      <dt> serverid </dt> <dd> {{device.serverid}} </dd>
-      <dt> public_key </dt> <dd> {{device.public_key}} </dd>
-      <dt> asset_address </dt> <dd> {{device.asset_address}} </dd> 
-      <dt> watch_only </dt> <dd> {{device.watch_only}} </dd>
-      <dt> network </dt> <dd> {{device.network}} </dd>
-      <dt> certstatus </dt> <dd> {{device.certstatus}} </dd>
-      <dt> createdate </dt> <dd>  {{device.createdate}} </dd>
+      <dt> Account Name </dt> <dd> {{account.accountname}} </dd>
+      <dt> Account ID </dt> <dd> {{account.accountid}} </dd>
+      <dt> Comment </dt> <dd> {{account.comment}} </dd>
+      <dt> Create Date </dt> <dd>  {{account.createdate}} </dd>
+    </dl>
+  </div>
+  <div class="well">
+    <div ng-if="account.public_key == null">
+      <button type="button" class="btn btn-info pull-right" ng-click="add_address()">Add Address</button>
+    </div>
+    <div ng-if="account.public_key != null">
+      <button type="button" class="btn btn-info pull-right" ng-click="del_address()">Del Address</button>
+    </div>
+    <dl class="dl-horizontal">
+      <dt> Publice Key </dt> <dd> {{account.public_key}} </dd>
+      <dt> Private Key </dt> <dd> {{account.asset_address}} </dd> 
+      <dt> watch_only </dt> <dd> {{account.watch_only}} </dd>
+      <dt> Network </dt> <dd> {{account.network}} </dd>
+      <dt> Cert Status </dt> <dd> {{account.certstatus}} </dd>
+      <dt> Create Date </dt> <dd>  {{account.createdate_addr}} </dd>
     </dl>
   </div>
 </div>
