@@ -22,6 +22,7 @@ angular.module('app')
       console.log(res)
       console.log("add address: %s", res.data.public_key)
 
+      account.get_address = "true" 
       account.public_key = res.data.public_key
       account.asset_address = res.data.asset_address
       account.watch_only = res.data.watch_only
@@ -49,7 +50,8 @@ angular.module('app')
     }).then (function (res) {
       console.log(res)
       console.log("display res!!")
-      
+     
+      account.get_address = "false" 
       account.public_key = ""
       account.asset_address = ""
       account.watch_only = ""

@@ -11,10 +11,10 @@
     </dl>
   </div>
   <div class="well">
-    <div ng-if="account.public_key == null">
+    <div ng-if="account.get_address == 'false'">
       <button type="button" class="btn btn-info pull-right" ng-click="add_address()">Add Address</button>
     </div>
-    <div ng-if="account.public_key != null">
+    <div ng-if="account.get_address == 'true'">
       <button type="button" class="btn btn-info pull-right" ng-click="del_address()">Del Address</button>
     </div>
     <dl class="dl-horizontal">

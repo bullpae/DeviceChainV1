@@ -5,6 +5,7 @@ var AccountInfo = db.model('AccountInfo', {
   comment: { type: String, required: false },
   accountid: { type: String, required: true, unique: true },
   createdate: { type: Date, required: true, default: Date.now },
+  get_address: { type: String, required: true, default: "false" },
   // address info
   public_key: { type: String, required: false },
   asset_address: { type: String, required: false},
