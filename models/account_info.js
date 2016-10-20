@@ -11,7 +11,7 @@ var AccountInfo = db.model('AccountInfo', {
   watch_only: { type: String, required: false },
   network: { type: String, required: false},
   certstatus: { type: String, required: false},
-  createdate_addr: { type: Date, required: false, default: Date.now }
+  createdate_addr: { type: Date, required: false}
 })
 
 module.exports = AccountInfo 

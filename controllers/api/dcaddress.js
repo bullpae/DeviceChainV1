@@ -25,7 +25,8 @@ router.delete("/dcaddress/:public_key", function (req, res, next) {
   var network = 'testnet';
 
   address.delete(key, network, function(err, response, request) {
-    console.log(res);
+    res.send(response)
+    return res
   });
 })
 

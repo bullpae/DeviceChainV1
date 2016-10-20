@@ -10,9 +10,9 @@ angular.module('app')
   recv_account()
 
   $scope.add_address = function () {
-    console.log("get address")
+    console.log("add address")
     console.log($scope.account)
-    console.log("llll get address")
+    console.log("llll add address")
 
     var account = $scope.account
     
@@ -20,7 +20,7 @@ angular.module('app')
       accountid: account.accountid
     }).then (function (res) {
       console.log(res)
-      console.log("get address: %s", res.data.public_key)
+      console.log("add address: %s", res.data.public_key)
 
       account.public_key = res.data.public_key
       account.asset_address = res.data.asset_address
@@ -29,7 +29,7 @@ angular.module('app')
       account.certstatus = "false"
       account.createdate_addr = res.data.created_at
       
-      return $http.post('/api/account/address_info', {
+      return $http.post('/api/account/address_info/' + account.userid, {
         account: account
       }).then (function (res) {
         console.log("save address")
@@ -38,29 +38,29 @@ angular.module('app')
   }
 
   $scope.del_address = function () {
-    console.log("get address")
+    console.log("del address")
     console.log($scope.account)
-    console.log("llll get address")
+    console.log("llll del address")
 
     var account = $scope.account
     
-    return $http.post('/api/dcaddress', {
+    return $http.delete('/api/dcaddress/' + account.public_key, {
       accountid: account.accountid
     }).then (function (res) {
       console.log(res)
-      console.log("get address: %s", res.data.public_key)
-
-      account.public_key = res.data.public_key
-      account.asset_address = res.data.asset_address
-      account.watch_only = res.data.watch_only
-      account.network = res.data.network
-      account.certstatus = "false"
-      account.createdate_addr = res.data.created_at
+      console.log("display res!!")
       
-      return $http.post('/api/account/address_info', {
+      account.public_key = ""
+      account.asset_address = ""
+      account.watch_only = ""
+      account.network = ""
+      account.certstatus = ""
+      account.createdate_addr = ""
+      
+      return $http.delete('/api/account/address_info/' + account.userid, {
         account: account
       }).then (function (res) {
-        console.log("save address")
+        console.log("delete address")
       })
     })
   }
