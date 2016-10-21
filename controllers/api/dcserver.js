@@ -1,6 +1,5 @@
 var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
-var authinfo = require('../../models/dcauth.info')
 
 router.post('/dcserver', function (req, res, next) {
   console.log("dcserver post 1")

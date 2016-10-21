@@ -28,8 +28,6 @@ router.get('/user_info/:userid', function (req, res, next) {
       console.log("get user info %s", user.userid)
     })
   }
- 
-
 })
 
 router.get('/user_info', function (req, res, next) {

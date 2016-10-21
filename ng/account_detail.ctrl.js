@@ -66,18 +66,4 @@ angular.module('app')
       })
     })
   }
-
-//   svc.fetch = function () {
-//     return $http.get('/api/cert/cert_info')
-//     .then(function (response) {
-//       return response.data
-//     })
-//   }
-
-//   svc.delete_cert = function (cert) {
-//     return $http.delete('api/cert/cert_info/'+ cert.deviceid)
-//     .then (function (res) {
-//         console.log("delete device info")
-//     })
-//   }
 })

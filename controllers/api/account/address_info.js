@@ -7,16 +7,24 @@ router.post('/address_info/:userid', function (req, res, next) {
   console.log("lll address_info post 1: ")
 
   var Accounts = new AccountInfo()
-  Accounts.update({userid: req.params.userid}, { $set: req.body }, 
-  function(err, account) {
+  var conditions = { userid: req.params.userid }
+  var update = { $set: { 
+      get_address: "true", 
+      public_key: req.body.public_key, 
+      asset_address: req.body.asset_address,
+      watch_only: req.body.watch_only,
+      network: req.body.network, 
+      certstatus: "false",
+      createdate_addr: req.body.created_at }
+  }
+  // var update = req.body
+  AccountInfo.findOneUpdate(conditions, update, 
+  function(err) {
     console.log("start update address ")
-    console.log(account)
     
     if (err) res.status(500).json({ error: 'database failure' })
     if (err) { return next(err) }
     res.sendStatus(201)
-    // if(!account.n) return res.status(404).json({ error: 'account not found' })
-    // res.json( { message: 'account updated' } )
   })
 })
 
@@ -26,16 +34,23 @@ router.delete('/address_info/:userid', function (req, res, next) {
   console.log("lll address_info post 1: ")
 
   var Accounts = new AccountInfo()
-  Accounts.update({userid: req.params.userid}, { $set: req.body }, 
-  function(err, account) {
-    console.log("start update address ")
-    console.log(account)
+  var conditions = { userid: req.params.userid }
+  var update = { $set: { 
+      get_address: "false", 
+      public_key: "", 
+      asset_address: "",
+      watch_only: "",
+      network: "", 
+      certstatus: "",
+      createdate_addr: "" }
+  }
+  AccountInfo.findOneUpdate(conditions, update, 
+  function(err) {
+    console.log("start delete address ")
     
     if (err) res.status(500).json({ error: 'database failure' })
     if (err) { return next(err) }
     res.sendStatus(201)
-    // if(!account.n) return res.status(404).json({ error: 'account not found' })
-    // res.json( { message: 'account updated' } )
   })
   
   // Accounts.findById(req.params.userid, function(err, account) {
