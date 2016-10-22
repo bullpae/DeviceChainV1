@@ -12,9 +12,10 @@ router.get('/device_info', function (req, res, next) {
 })
 
 router.post('/device_info', function (req, res, next) {
-  console.log("device_info post 1")
+  console.log("device_info post 1: %s", req.body.userid)
 
   var device = new DeviceInfo()
+  device.userid = req.body.userid
   device.devicetype = req.body.devicetype
   device.deviceid = req.body.deviceid
   device.serverid = ""

@@ -11,12 +11,12 @@ angular.module('app')
     device_one = device 
   }
   
-  svc.register = function (devicetype, deviceid) {
+  svc.register = function (userid, devicetype, deviceid) {
     // Get device info
-    console.log("start get device")
+    console.log("start get device: %s")
 
     return $http.post('/api/device/device_info', {
-      devicetype: devicetype, deviceid: deviceid 
+      userid: userid, devicetype: devicetype, deviceid: deviceid 
     }).then(function () {
       console.log("success device info")
     })
