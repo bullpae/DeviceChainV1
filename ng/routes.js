@@ -15,6 +15,8 @@ angular.module('app')
   .when('/device_info',{ controller: 'DeviceInfoCtrl', templateUrl: '/templates/device/device_info.html' })
   .when('/device_reg',{ controller: 'DeviceRegCtrl', templateUrl: '/templates/device/device_reg.html' })
   .when('/device_detail',{ controller: 'DeviceDetailCtrl', templateUrl: '/templates/device/device_detail.html' })
+  // auth 
+  .when('/authentication',{ controller: 'AuthCtrl', templateUrl: '/templates/auth/authentication.html' })
   // cert
   .when('/cert_info',{ controller: 'CertInfoCtrl', templateUrl: '/templates/cert/cert_info.html' })
   .when('/cert_reg',{ controller: 'CertRegCtrl', templateUrl: '/templates/cert/cert_reg.html' })

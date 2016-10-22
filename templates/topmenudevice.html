@@ -12,13 +12,15 @@
       <ul class='nav navbar-nav'>
         <li class="active"><a class='dashboard' href='/#/dashboard'><i class="fa fa-institution"></i> Node Info</a></li>
         <li><a href="/#/account_info" ng-click="setuser_account(currentUser)">Account</a></li>
+        <!-- Device Menu -->
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 장치 관리 <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="/#/device_detail"> My Device <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">장치 등록</a></li>
-            <li><a href="#">장치 확인</a></li>
+            <li><a href="/#/device_reg">My Device Register</a></li>
+            <li><a href="/#/device_detail">My Device Infomation</a></li>
           </ul>
-        </li>     
+        </li>   
+        <li><a href="/#/authentication" ng-click="setuser_account(currentUser)">Authentication</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 인증 관리 <span class="caret"></span></a>
           <ul class="dropdown-menu">
