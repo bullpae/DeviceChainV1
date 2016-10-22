@@ -30,6 +30,20 @@ router.delete("/dcaddress/:public_key", function (req, res, next) {
   });
 })
 
+router.get("/dcaddress/:address", function(req, res, next) {
+  console.log("address: %s", req.params.address);
+  
+  var addressCtrl = ScaleChain.AddressController;
+  var address = req.params.address;
+  var network = "testnet";
+  
+  addressCtrl.getAddress(address, network, function(err, response, request) {
+    console.log(response);
+    res.send(response)
+    return res;
+  });
+})
+
 // curl https://api.scalechain.io/v1/addresses/new \
 //   -H 'Authorization: Bearer d36730995975edcad1115b43e13a8c0781394c2c' \
 //   -H 'Network: mainnet' \

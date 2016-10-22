@@ -20,8 +20,6 @@ router.post('/device_info', function (req, res, next) {
   device.serverid = ""
   device.public_key = ""
   device.asset_address = ""
-  device.watch_only = "false"
-  device.network = "testnet"
 
   console.log("save device info %s %s %s", device.devicetype, device.deviceid, device.createdate)
 

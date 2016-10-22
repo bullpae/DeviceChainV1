@@ -66,4 +66,19 @@ angular.module('app')
       })
     })
   }
+  
+  $scope.get_balance = function () {
+    var account = AccountInfoSvc.get()
+    console.log("get balance!!:%s", account.public_key)
+    console.log(account)
+    console.log("llll get address")
+
+    return $http.get('/api/dcaddress/' + account.public_key, {
+      account: account
+    }).then (function (res) {
+      console.log(res)
+      console.log("display res!!")
+      $scope.address = res.data
+    })
+  }
 })
