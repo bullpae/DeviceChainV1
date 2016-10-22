@@ -1,12 +1,25 @@
-<form ng-submit="register(devicetype, deviceid)">
+<h1 class="text-center">Device Register</h1>
+<form ng-submit="register(currentUser.userid, devicetype, deviceid)">
   <div class="form-group">
-    <label>Device Type</label>
-    <input class="form-control" type="text" ng-model="devicetype">
+    <label>Select Device Type: {{devicetype}}</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-tablet"></i>
+      </span>
+      <select class="form-control input-lg" ng-model="devicetype" placeholder="Device Type">
+        <option>DCU(Data Concentrate Unit)</option>
+        <option>Electricity Meter</option>
+      </select>
+    </div>
   </div>
   <div class="form-group">
-    <label>Device ID</label>
-    <input class="form-control" type="text" ng-model="deviceid">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-tag"></i>
+      </span>
+      <input class="form-control input-lg" type="text" ng-model="deviceid" placeholder="Device ID">
+    </div>
   </div>
-  <input class="btn btn-success btn-lg btn-block" type="submit" value="장치 등록">
+  <input class="btn btn-success btn-lg btn-block" type="submit" value="Submit">
   <p></p> <p></p> 
 </form>
