@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('DeviceDetailCtrl', function ($scope, DeviceInfoSvc, $location) {
+.controller('MyDeviceDetailCtrl', function ($scope, DeviceInfoSvc, $location) {
 
   var recv_device = function () {
     console.log("recv_device")

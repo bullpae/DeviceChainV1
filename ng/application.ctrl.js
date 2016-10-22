@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('ApplicationCtrl', function ($scope, UserInfoSvc, AccountInfoSvc, $location) {
+.controller('ApplicationCtrl', function ($scope, UserInfoSvc, AccountInfoSvc, DeviceInfoSvc, $location) {
   // $scope.logBtnText = 'Login';
   $scope.$on('signin', function (_, user) {
     console.log("event signin app ctrl")
@@ -47,5 +47,6 @@ angular.module('app')
     console.log("setuser_account current user: ")
     console.log(user)
     AccountInfoSvc.setuser(user)
+    DeviceInfoSvc.setcurrentuser(user)
   }
 })

@@ -2,7 +2,7 @@ angular.module('app')
 .controller('DeviceInfoCtrl', function ($scope, DeviceInfoSvc, $location) {
 
   var refresh = function() {
-    DeviceInfoSvc.fetch()
+    DeviceInfoSvc.getlist()
     .then(function (device_list) {
       $scope.device_list = device_list
     })
@@ -22,6 +22,6 @@ angular.module('app')
   $scope.send_device = function (device) {
     console.log("send_device")
     console.log(device)
-    DeviceInfoSvc.set(device)
+    DeviceInfoSvc.setdevice(device)
   }
 })

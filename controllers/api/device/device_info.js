@@ -1,15 +1,52 @@
 var router = require('express').Router()
 var DeviceInfo = require('../../../models/device_info')
 
+router.get('/device_info/:userid', function (req, res, next) {
+  var cond = req.params.userid
+  
+  console.log("DeviceInfo condition: %s", cond)
+ 
+  if (cond == "") {
+    DeviceInfo.find({})
+    .sort('-date')
+    .exec(function (err, device) {
+      if (err) { return next(err) }
+      console.log(device)
+      res.json(device)
+      console.log("get all device info %s", device.userid)
+    })
+  } else {
+    DeviceInfo.find({userid:cond})
+    .sort('-date')
+    .exec(function (err, device) {
+      if (err) { return next(err) }
+      console.log(device)
+      res.json(device)
+      console.log("get device info %s", device.userid)
+    })
+  }
+})
+
 router.get('/device_info', function (req, res, next) {
-  console.log("device_info get 1")
-  DeviceInfo.find()
+  DeviceInfo.find({})
   .sort('-date')
   .exec(function (err, device_list) {
     if (err) { return next(err) }
+    console.log("get all device info")
+    console.log(device_list)
     res.json(device_list)
   })
 })
+
+// router.get('/device_info', function (req, res, next) {
+//   console.log("device_info get 1")
+//   DeviceInfo.find()
+//   .sort('-date')
+//   .exec(function (err, device_list) {
+//     if (err) { return next(err) }
+//     res.json(device_list)
+//   })
+// })
 
 router.post('/device_info', function (req, res, next) {
   console.log("device_info post 1: %s", req.body.userid)

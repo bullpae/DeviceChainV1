@@ -3,12 +3,21 @@ angular.module('app')
   var device_one
 
   var svc = this
-  svc.get = function () {
+  svc.getdevice = function () {
     return device_one
   }
 
-  svc.set = function (device) {
+  svc.setdevice = function (device) {
     device_one = device 
+  }
+  
+  var currentuser = null
+  svc.getcurrentuser = function () {
+    return currentuser
+  }
+  
+  svc.setcurrentuser = function (user) {
+    currentuser = user
   }
   
   svc.register = function (userid, devicetype, deviceid) {
@@ -22,8 +31,15 @@ angular.module('app')
     })
   }
 
-  svc.fetch = function () {
+  svc.getlist = function () {
     return $http.get('/api/device/device_info')
+    .then(function (response) {
+      return response.data
+    })
+  }
+  
+  svc.fetch = function () {
+    return $http.get('/api/device/device_info/' + currentuser.userid)
     .then(function (response) {
       return response.data
     })
