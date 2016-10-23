@@ -14,10 +14,9 @@
     <div ng-if="account.get_address == 'false'">
       <button type="button" class="btn btn-info pull-right" ng-click="add_address()">Add Address</button>
     </div>
-    <div ng-if="account.get_address == 'true'">
-      <button type="button" class="btn btn-info pull-right" ng-click="del_address()">Del Address</button>
+    <div ng-if="account.get_address == 'true'" class="pull-right">
       <div class="container">
-        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal" ng-click="get_balance()">Balance Info</button>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="get_balance()">Balance Info</button>
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog modal-lg">
@@ -42,6 +41,8 @@
             </div>
           </div>
         </div>
+        <button type="button" class="btn btn-info" ng-click="get_transaction()">Transaction Info</button>
+        <button type="button" class="btn btn-danger" ng-click="del_address()">Del Address</button>
       </div>
     </div>
     <dl class="dl-horizontal">

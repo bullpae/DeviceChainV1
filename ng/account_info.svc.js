@@ -35,6 +35,16 @@ angular.module('app')
       return response.data
     })
   }
+  
+  svc.get_account = function (userid) {
+    console.log("account svc user: %s", userid)
+    return $http.get('/api/account/account_info/' + userid)
+    .then(function (response) {
+      console.log(response)
+      console.log("get_account!!")
+      return response.data
+    })
+  }
 
   svc.delete_account = function (account) {
     // todo: after delete sc account

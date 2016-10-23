@@ -56,7 +56,7 @@ router.post('/mydevice_info', function (req, res, next) {
   device.devicetype = req.body.devicetype
   device.deviceid = req.body.deviceid
   device.serverid = ""
-  device.public_key = ""
+  device.public_key = req.body.public_key
   device.asset_address = ""
 
   console.log("save MyDeviceInfo %s %s %s", device.devicetype, device.deviceid, device.createdate)

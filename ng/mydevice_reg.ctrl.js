@@ -3,7 +3,7 @@ angular.module('app')
   $scope.register = function (userid, devicetype, deviceid) {
     console.log("start mydevice_reg.ctrl register: %s", userid)
     MyDeviceInfoSvc.register(userid, devicetype, deviceid)
-    .then(function (device_list) {
+    .then(function (res) {
       console.log("Start MyDeviceInfoSvc register")
       $location.path('/mydevice_detail')
     })

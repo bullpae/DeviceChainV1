@@ -1,5 +1,5 @@
 angular.module('app')
-.service('MyDeviceInfoSvc', function ($http) {
+.service('MyDeviceInfoSvc', function ($http, AccountInfoSvc) {
   var device_one
 
   var svc = this
@@ -22,12 +22,22 @@ angular.module('app')
   
   svc.register = function (userid, devicetype, deviceid) {
     // Get mydevice_info info
-    console.log("start get mydevice_info: %s")
-
-    return $http.post('/api/device/mydevice_info', {
-      userid: userid, devicetype: devicetype, deviceid: deviceid 
-    }).then(function () {
-      console.log("success mydevice_info")
+    console.log("start get mydevice_info: %s", userid)
+   
+    return AccountInfoSvc.get_account(userid)
+    .then(function(account) {
+      console.log("my device register test!!")
+      console.log(account) 
+      console.log(account.length) 
+      console.log(account[0])
+      console.log("get account my device register test!!")
+      
+      return $http.post('/api/device/mydevice_info', {
+        userid: userid, devicetype: devicetype, deviceid: deviceid, public_key: account[0].public_key
+      }).then(function (response) {
+        console.log("success mydevice_info")
+        return response.data
+      })    
     })
   }
 

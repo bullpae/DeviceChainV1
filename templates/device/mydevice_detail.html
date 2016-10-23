@@ -8,8 +8,9 @@
       <div ng-switch-when="undefined">
         <button type="button" class="btn btn-info pull-right" ng-click="add_mydevice()">Add My Device</button>
       </div>
-      <div ng-switch-default>
-        <button type="button" class="btn btn-info pull-right" ng-click="del_mydevice(device)">Del My Device</button>
+      <div ng-switch-default class="pull-right">
+        <button type="button" class="btn btn-info" ng-click="reg_mydevice(device)">Reg Authentication</button>
+        <button type="button" class="btn btn-danger" ng-click="del_mydevice(device)">Del My Device</button>
       </div>
     </div>
     <dl class="dl-horizontal">

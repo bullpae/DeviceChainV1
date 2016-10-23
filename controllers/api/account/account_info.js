@@ -10,7 +10,7 @@ router.get('/account_info/:userid', function (req, res, next) {
     if (err) { return next(err) }
     console.log(account)
     res.json(account)
-    console.log("get account info %s", account.accountid)
+    console.log("get account info")
   })
 })
 
