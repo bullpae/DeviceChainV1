@@ -44,6 +44,13 @@ angular.module('app')
       return response.data
     })
   }
+  
+  svc.read_device = function (device) {
+    return $http.get('/api/device/device_info/' + device.deviceid)
+    .then(function (response) {
+      return response.data
+    })
+  }
 
   svc.delete_device = function (device) {
     return $http.delete('api/device/device_info/'+ device.deviceid)

@@ -1,5 +1,5 @@
 angular.module('app')
-.service('MyDeviceInfoSvc', function ($http, AccountInfoSvc) {
+.service('MyDeviceInfoSvc', function ($http, AccountInfoSvc, DeviceInfoSvc) {
   var device_one
 
   var svc = this
@@ -60,9 +60,9 @@ angular.module('app')
   }
 
   svc.delete_device = function (device) {
-    return $http.delete('api/device/mydevice_info/'+ device.deviceid)
+    return $http.delete('api/device/mydevice_info/' + device.deviceid)
     .then (function (res) {
-        console.log("delete mydevice_info")
+      console.log("delete mydevice_info")
     })
     // // todo: after delete sc account
     // console.log(device)
@@ -76,5 +76,42 @@ angular.module('app')
     //     console.log("delete device info")
     //   })
     // })
+  }
+  
+  svc.auth_device = function (device) {
+    console.log("auth_device() test")
+    // 정보 확인 
+    var account_info =  DeviceInfoSvc.read_device(device)
+    .then (function (res) {
+      if (res) {
+        console.log("compare info: %s %s", device.deviceid, res[0].deviceid)
+      }
+    })
+    console.log("account_info")
+    console.log(account_info)
+    
+    if (device.deviceid == account_info.deviceid) {
+      console.log("same info!!")
+    }
+      //     // get node account
+      //     return $http.get('/api/account/account_info/' + "admin")
+      //     .then(function (account_info_res) {
+      //       console.log("get node account!!")
+      //       console.log(account_info_res.data)
+      //       // send coin
+      //       return $http.post("api/blockchain/account/" + device.deviceid, {
+      //         device: device, account_info: account_info_res.data
+      //       }).then (function (send_coin_res) {
+      //         console.log("auth_device send coin!!! ")
+      //         console.log(send_coin_res)
+      //         //
+      //       })
+      //     })
+          
+      //     // signed transaction
+          
+      //     // send 
+      //   }
+      // }
   }
 })

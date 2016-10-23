@@ -29,4 +29,15 @@ angular.module('app')
       })
     }
   }
+  
+  $scope.auth_mydevice = function (device) {
+    console.log("auth_mydevice() test")
+    
+    if (device) {
+      MyDeviceInfoSvc.auth_device(device)
+      .then(function () {
+        refresh()
+      }) 
+    }
+  }
 })
