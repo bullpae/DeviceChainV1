@@ -4,6 +4,14 @@
 <div class="container">
   <div class="well">
     <!-- 버튼 누르면 현재 발행된 Device Account 중에서 골라 Public Key 등록 하는 기능 넣기  -->
+    <div ng-switch="device.devicetype">
+      <div ng-switch-when="undefined">
+        <button type="button" class="btn btn-info pull-right" ng-click="add_mydevice()">Add My Device</button>
+      </div>
+      <div ng-switch-default>
+        <button type="button" class="btn btn-info pull-right" ng-click="del_mydevice(device)">Del My Device</button>
+      </div>
+    </div>
     <dl class="dl-horizontal">
       <dt> Device Type </dt> <dd> {{device.devicetype}} </dd>
       <dt> Device ID </dt> <dd> {{device.deviceid}} </dd>

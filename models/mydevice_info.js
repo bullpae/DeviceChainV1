@@ -1,5 +1,5 @@
 var db = require('../db')
-var ServerInfo = db.model('DeviceInfo', {
+var MyDeviceInfo = db.model('MyDeviceInfo', {
   userid: { type: String, required: true },
   devicetype: { type: String, required: false },
   deviceid: { type: String, required: true },
@@ -12,4 +12,4 @@ var ServerInfo = db.model('DeviceInfo', {
   createdate: { type: Date, required: true, default: Date.now }
 })
 
-module.exports = ServerInfo 
+module.exports = MyDeviceInfo 
