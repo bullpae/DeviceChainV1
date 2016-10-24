@@ -98,19 +98,19 @@ angular.module('app')
             
             // send coin
             return $http.post("api/blockchain/account/send", {
-              device: device, account_info: account_info_res.data[0], amount: 10000
+              device: device, account_info: account_info_res.data[0], amount: 1000
             }).then (function (send_coin_res) {
               console.log("auth_device send coin!!! ")
               console.log(send_coin_res)
               // signed transaction
               return $http.post("api/blockchain/transaction/sign", {
-                unsigned_tx_hex: send_coin_res.unsigned_tx_hex
+                unsigned_tx_hex: send_coin_res.data.unsigned_tx_hex
               }).then (function (signed_tran_res) {
                 console.log("auth_device signed transaction!!! ")
                 console.log(signed_tran_res)
                 // send signed transaction
                 return $http.post("api/blockchain/transaction/sign", {
-                  unsigned_tx_hex: signed_tran_res.unsigned_tx_hex
+                  unsigned_tx_hex: signed_tran_res.data.unsigned_tx_hex
                 }).then (function (send_tran_res) {
                   console.log("auth_device send transaction!!! ")
                   console.log(send_tran_res)
