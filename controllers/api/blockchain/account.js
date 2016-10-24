@@ -4,10 +4,11 @@ var ScaleChain = require('scalechain-nodejs');
 router.post('/account/send', function (req, res, next) {
   console.log('account.js exe accountid: %s', req.body.account_info.accountid)
   console.log('account.js exe public_key: %s', req.body.device.public_key)
+  console.log(req.body)
   
   var account = ScaleChain.AccountController;
   var account_id = req.body.account_info.accountid
-  var amount = 1000000
+  var amount = req.body.amount
   var to_address = req.body.device.public_key
   var network = 'testnet'
   

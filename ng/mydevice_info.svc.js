@@ -98,7 +98,7 @@ angular.module('app')
             
             // send coin
             return $http.post("api/blockchain/account/send", {
-              device: device, account_info: account_info_res.data[0]
+              device: device, account_info: account_info_res.data[0], amount: 10000
             }).then (function (send_coin_res) {
               console.log("auth_device send coin!!! ")
               console.log(send_coin_res)
