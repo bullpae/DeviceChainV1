@@ -22,7 +22,7 @@
           </ul>
         </li-->   
         <!--li><a href="/#/authentication" ng-click="setuser_account(currentUser)">Authentication</a></li-->
-        <li><a class='posts' href='/#/connection_test'>Connection Test</a></li>
+        <li><a href="/#/connection_test" ng-click="setuser_account(currentUser)">Connection Test</a></li>
       </ul>
     <ul class="nav navbar-nav navbar-right">
       <p ng-if="currentUser" class="navbar-text"> Signed in as <b class="user">{{currentUser.userid}}</b> </p> 

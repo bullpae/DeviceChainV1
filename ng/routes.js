@@ -3,6 +3,7 @@ angular.module('app')
   $routeProvider
   .when('/',         { controller: '', templateUrl: '/templates/index.html' })
   .when('/dashboard',{ controller: 'DashboardCtrl', templateUrl: '/templates/dashboard.html' })
+  .when('/connection_test',{ controller: 'ConnectionTestCtrl', templateUrl: '/templates/connection_test.html' })
   // account
   .when('/account_info',{ controller: 'AccountInfoCtrl', templateUrl: '/templates/account/account_info.html' })
   .when('/account_reg',{ controller: 'AccountRegCtrl', templateUrl: '/templates/account/account_reg.html' })
