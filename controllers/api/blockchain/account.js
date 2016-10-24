@@ -16,7 +16,7 @@ router.post('/account/send', function (req, res, next) {
     console.log(err)
     if (err) { return next(err) }
     console.log(response);
-    res.send(response)
+    res.json(response)
     // return response
   });
 })

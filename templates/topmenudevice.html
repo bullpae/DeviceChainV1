@@ -21,15 +21,8 @@
             <li><a href="/#/mydevice_detail" ng-click="setuser_account(currentUser)">My Device Infomation</a></li>
           </ul>
         </li-->   
-        <li><a href="/#/authentication" ng-click="setuser_account(currentUser)">Authentication</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> 인증 관리 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">인증 정보</a></li>
-            <li><a href="#">인증 확인</a></li>
-          </ul>
-        </li>  
-        <li><a class='posts' href='/#/'>접속 테스트</a></li>
+        <!--li><a href="/#/authentication" ng-click="setuser_account(currentUser)">Authentication</a></li-->
+        <li><a class='posts' href='/#/connection_test'>Connection Test</a></li>
       </ul>
     <ul class="nav navbar-nav navbar-right">
       <p ng-if="currentUser" class="navbar-text"> Signed in as <b class="user">{{currentUser.userid}}</b> </p> 

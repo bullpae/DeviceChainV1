@@ -104,16 +104,16 @@ angular.module('app')
               console.log(send_coin_res)
               // signed transaction
               return $http.post("api/blockchain/transaction/sign", {
-                unsigned_tx_hex: send_coin_res.data.unsigned_tx_hex
-              }).then (function (signed_tran_res) {
+                trans_ret: send_coin_res.data
+              }).then (function (signed_trans_res) {
                 console.log("auth_device signed transaction!!! ")
-                console.log(signed_tran_res)
+                console.log(signed_trans_res)
                 // send signed transaction
                 return $http.post("api/blockchain/transaction/sign", {
-                  unsigned_tx_hex: signed_tran_res.data.unsigned_tx_hex
-                }).then (function (send_tran_res) {
+                  send_ret: signed_trans_res.data
+                }).then (function (send_trans_res) {
                   console.log("auth_device send transaction!!! ")
-                  console.log(send_tran_res)
+                  console.log(send_trans_res)
 
                 })
               })

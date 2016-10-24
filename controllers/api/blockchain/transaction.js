@@ -2,35 +2,39 @@ var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
 
 router.post('/transaction/sign', function (req, res, next) {
-  console.log('transaction.js sign: %s', req.body.unsigned_tx_hex)
-  console.log(req.body)
+  console.log('transaction.js sign: %s', req.body.trans_ret.unsigned_tx_hex)
+  console.log(req.body.trans_ret)
+  var obj = eval("(" + req.body.trans_ret + ")")
+  console.log(obj)
 
   var transaction = ScaleChain.TransactionController;
-  var unsinged_tx_hex = req.body.unsigned_tx_hex
+  var unsinged_tx_hex = obj.unsigned_tx_hex
   var network = 'testnet'
   
   transaction.signRawTransaction(unsinged_tx_hex, network, function(err, response, request) {
     console.log(err)
     if (err) { return next(err) }
     console.log(response);
-    res.send(response)
+    res.json(response)
     // return response
   });
 })
 
 router.post('/transaction/send', function (req, res, next) {
-  console.log('transaction.js send: %s', req.body.singed_tx_hex)
-  console.log(req.body)
+  console.log('transaction.js send: %s', req.body.send_ret.singed_tx_hex)
+  console.log(req.body.send_ret)
+  var obj = eval("("+req.body.send_ret+")")
+  console.log(obj)
 
   var transaction = ScaleChain.TransactionController;
-  var singed_tx_hex = req.body.singed_tx_hex
+  var singed_tx_hex = obj.singed_tx_hex
   var network = 'testnet'
 
   transaction.sendSignedTransaction(singed_tx_hex, network, function(err, response, request) {
     console.log(err)
     if (err) { return next(err) }
     console.log(response);
-    res.send(response)
+    res.json(response)
     // return response
   });
 })
