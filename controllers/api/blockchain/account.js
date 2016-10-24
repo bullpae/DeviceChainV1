@@ -1,21 +1,23 @@
 var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
 
-router.get('/account/:deviceid', function (req, res, next) {
-  console.log('account.js exe start: %:', req.params.deviceid)
+router.post('/account/send', function (req, res, next) {
+  console.log('account.js exe accountid: %s', req.body.account_info.accountid)
+  console.log('account.js exe public_key: %s', req.body.device.public_key)
   
-  var address = ScaleChain.AddressController;
+  var account = ScaleChain.AccountController;
   var account_id = req.body.account_info.accountid
-  var amount = 0.1
+  var amount = 1000000
   var to_address = req.body.device.public_key
-  var network = "testnet"
+  var network = 'testnet'
+  
   account.sendCoin(account_id, amount, to_address, network, function(err, response, request) {
+    console.log(err)
+    if (err) { return next(err) }
     console.log(response);
     res.send(response)
-    return response
+    // return response
   });
-
-  console.log('account.js exe end')
 })
 
 // curl https://api.scalechain.io/v1/accounts/send \

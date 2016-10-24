@@ -27,6 +27,19 @@ router.get('/device_info/:userid', function (req, res, next) {
   }
 })
 
+router.get('/device_info/:deviceid/get', function (req, res, next) {
+  var cond = req.params.deviceid
+  
+  console.log("DeviceInfo condition deviceid: %s", cond)
+  DeviceInfo.findOne(cond)
+  .exec(function (err, device) {
+    if (err) { return next(err) }
+    console.log("get device info")
+    console.log(device)
+    res.json(device)
+  })
+})
+
 router.get('/device_info', function (req, res, next) {
   DeviceInfo.find({})
   .sort('-date')

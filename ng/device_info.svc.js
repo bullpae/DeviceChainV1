@@ -46,7 +46,7 @@ angular.module('app')
   }
   
   svc.read_device = function (device) {
-    return $http.get('/api/device/device_info/' + device.deviceid)
+    return $http.get('/api/device/device_info/' + device.deviceid + "/get")
     .then(function (response) {
       return response.data
     })
