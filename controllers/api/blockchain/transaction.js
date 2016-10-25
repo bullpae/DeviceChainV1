@@ -22,17 +22,17 @@ router.post('/transaction/signtx', function (req, res, next) {
     body: data
   }, function (err, response, body){
     console.log(err);
-    console.log(response);
+    console.log(body);
     
     if (err) { return next(err) }
-    res.json(response)
+    res.json(body)
   })
 })
 
 router.post('/transaction/sendtx', function (req, res, next) {
   var config = ScaleChain.configuration;
   var key = config.oAuthAccessToken
-  var data = req.body.send_ret
+  var data = req.body.trans_ret
   var network = "testnet"
   
   console.log("signtx test: %s", key)
@@ -49,10 +49,10 @@ router.post('/transaction/sendtx', function (req, res, next) {
     body: data
   }, function (err, response, body){
     console.log(err);
-    console.log(response);
+    console.log(body);
     
     if (err) { return next(err) }
-    res.json(response)
+    res.json(body)
   })
 })
 
