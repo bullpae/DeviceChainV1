@@ -1,5 +1,6 @@
 var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
+var request = require('request');
 
 router.post('/transaction/signtx', function (req, res, next) {
   var config = ScaleChain.configuration;
@@ -10,7 +11,6 @@ router.post('/transaction/signtx', function (req, res, next) {
   console.log("signtx test: %s", key)
   console.log(data)
   
-  var request = require('request');
   request({
     url: "https://api.scalechain.io/v1/transactions/sign",
     method: "POST",
@@ -21,9 +21,35 @@ router.post('/transaction/signtx', function (req, res, next) {
     },
     body: data
   }, function (err, response, body){
-    console.log(error);
+    console.log(err);
     console.log(response);
-    console.log(body);
+    
+    if (err) { return next(err) }
+    res.json(response)
+  })
+})
+
+router.post('/transaction/sendtx', function (req, res, next) {
+  var config = ScaleChain.configuration;
+  var key = config.oAuthAccessToken
+  var data = req.body.trans_ret
+  var network = "testnet"
+  
+  console.log("signtx test: %s", key)
+  console.log(data)
+  
+  request({
+    url: "https://api.scalechain.io/v1/transactions/send",
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + key, 
+      "Network": network,
+       "content-type": "application/json",  // <--Very important!!!
+    },
+    body: data
+  }, function (err, response, body){
+    console.log(err);
+    console.log(response);
     
     if (err) { return next(err) }
     res.json(response)
