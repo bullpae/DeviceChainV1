@@ -1,41 +1,74 @@
 var router = require('express').Router()
 var ScaleChain = require('scalechain-nodejs');
 
+router.post('/transaction/signtx', function (req, res, next) {
+  var config = ScaleChain.configuration;
+  var key = config.oAuthAccessToken
+  var data = req.body.trans_ret
+  var network = "testnet"
+  
+  console.log("signtx test: %s", key)
+  console.log(data)
+  
+  var request = require('request');
+  request({
+    url: "https://api.scalechain.io/v1/transactions/sign",
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + key, 
+      "Network": network,
+       "content-type": "application/json",  // <--Very important!!!
+    },
+    body: data
+  }, function (err, response, body){
+    console.log(error);
+    console.log(response);
+    console.log(body);
+    
+    if (err) { return next(err) }
+    res.json(response)
+  })
+})
+
 router.post('/transaction/sign', function (req, res, next) {
   console.log('transaction.js sign: %s', req.body.trans_ret.unsigned_tx_hex)
   console.log(req.body.trans_ret)
-  var obj = eval("(" + req.body.trans_ret + ")")
-  console.log(obj)
 
   var transaction = ScaleChain.TransactionController;
-  var unsinged_tx_hex = obj.unsigned_tx_hex
+  var unsinged_tx_hex = req.body.trans_ret.unsigned_tx_hex
+  // var unsinged_tx_hex = new String(req.body.trans_ret.unsigned_tx_hex)
+  // var unsinged_tx_hex = "" + req.body.trans_ret.unsigned_tx_hex + ""
   var network = 'testnet'
+  console.log(unsinged_tx_hex)
+  var strTx = JSON.stringify(unsinged_tx_hex) 
+  console.log(strTx)
   
-  transaction.signRawTransaction(unsinged_tx_hex, network, function(err, response, request) {
+  transaction.signRawTransaction(strTx, network, function(err, response, request) {
     console.log(err)
     if (err) { return next(err) }
     console.log(response);
     res.json(response)
-    // return response
   });
 })
 
 router.post('/transaction/send', function (req, res, next) {
   console.log('transaction.js send: %s', req.body.send_ret.singed_tx_hex)
   console.log(req.body.send_ret)
-  var obj = eval("("+req.body.send_ret+")")
-  console.log(obj)
 
   var transaction = ScaleChain.TransactionController;
-  var singed_tx_hex = obj.singed_tx_hex
+  var singed_tx_hex = req.body.send_ret.singed_tx_hex
+  // var singed_tx_hex = new String(req.body.send_ret.singed_tx_hex)
+  // var singed_tx_hex = "" + req.body.send_ret.singed_tx_hex + ""
   var network = 'testnet'
-
-  transaction.sendSignedTransaction(singed_tx_hex, network, function(err, response, request) {
+  console.log(singed_tx_hex)
+  var strTx = JSON.stringify(singed_tx_hex) 
+  console.log(strTx)
+  
+  transaction.sendSignedTransaction(strTx, network, function(err, response, request) {
     console.log(err)
     if (err) { return next(err) }
     console.log(response);
     res.json(response)
-    // return response
   });
 })
 

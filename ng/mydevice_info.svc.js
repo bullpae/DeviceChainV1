@@ -77,7 +77,22 @@ angular.module('app')
     //   })
     // })
   }
-  
+
+  // svc.signTransaction = function (data, key) {
+  //   console.log("signTransaction TEST!!")
+  //   console.log(data)
+    
+  //   return $http({
+  //     method: 'POST',
+  //     url: 'https://api.scalechain.io/v1/transactions/sign',
+  //     headers: {"Authorization": "Bearer d36730995975edcad1115b43e13a8c0781394c2c", "Network": "testnet", "Content-Type": "application/json"},
+  //     data: data
+  //   }).then (function (res) {
+  //     console(res)
+  //     send
+  //   })
+  // }
+
   svc.auth_device = function (device) {
     console.log("auth_device() test")
     // 정보 확인 
@@ -102,21 +117,32 @@ angular.module('app')
             }).then (function (send_coin_res) {
               console.log("auth_device send coin!!! ")
               console.log(send_coin_res)
-              // signed transaction
-              return $http.post("api/blockchain/transaction/sign", {
-                trans_ret: send_coin_res.data
-              }).then (function (signed_trans_res) {
+               
+              var data = JSON.stringify(send_coin_res.data)
+              console.log(data)
+              
+              return $http.post("api/blockchain/transaction/signtx", {
+                trans_ret: data
+              }).then (function (signed_trans_res) {  
                 console.log("auth_device signed transaction!!! ")
                 console.log(signed_trans_res)
-                // send signed transaction
-                return $http.post("api/blockchain/transaction/sign", {
-                  send_ret: signed_trans_res.data
-                }).then (function (send_trans_res) {
-                  console.log("auth_device send transaction!!! ")
-                  console.log(send_trans_res)
+              })            
+              
+              // signed transaction
+              // return $http.post("api/blockchain/transaction/sign", {
+              //   trans_ret: send_coin_res.data
+              // }).then (function (signed_trans_res) {
+              //   console.log("auth_device signed transaction!!! ")
+              //   console.log(signed_trans_res)
+              //   // send signed transaction
+              //   return $http.post("api/blockchain/transaction/sign", {
+              //     send_ret: signed_trans_res.data
+              //   }).then (function (send_trans_res) {
+              //     console.log("auth_device send transaction!!! ")
+              //     console.log(send_trans_res)
 
-                })
-              })
+              //   })
+              // })
             })
           })
         }
