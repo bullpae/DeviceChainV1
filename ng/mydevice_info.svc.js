@@ -126,6 +126,17 @@ angular.module('app')
               }).then (function (signed_trans_res) {  
                 console.log("auth_device signed transaction!!! ")
                 console.log(signed_trans_res)
+                
+                var data = JSON.stringify(signed_trans_res.data)
+                console.log(data)
+                
+                return $http.post("api/blockchain/transaction/signtx", {
+                  send_ret: data
+                }).then (function (send_trans_res) {
+                  console.log("auth_device send transaction!!! ")
+                  console.log(send_trans_res)
+
+                })
               })            
               
               // signed transaction
