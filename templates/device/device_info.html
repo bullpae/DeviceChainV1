@@ -11,6 +11,7 @@
         <tr>
           <th>Device Type</th>
           <th>Device ID</th>
+          <th>Authentication</th>
           <th>Created Date</th>
           <th></th>
         </tr>
@@ -20,6 +21,10 @@
           <td>{{ device.devicetype }}</td>
           <td>
             <a href="/#/device_detail" ng-click="send_device(device)"> {{ device.deviceid }} </a>
+          </td>
+          <td>
+            {{device.certstatus}}
+            <button type="button" class="btn btn-default" ng-click="cancel_auth(device)" ng-if="device.certstatus=='true'"><i class="fa fa-ban"></i></button>
           </td>
           <td>{{ device.createdate }}</td>
           <td><button type="button" class="btn btn-default" ng-click="delete_device(device)"><i class="fa fa-trash-o"></i></button></td>

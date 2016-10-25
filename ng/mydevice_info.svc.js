@@ -145,7 +145,15 @@ angular.module('app')
                 }).then (function (send_trans_res) {
                   console.log("auth_device send transaction!!! ")
                   console.log(send_trans_res)
-
+                  // certstatus update
+                  return $http.post("api/device/mydevice_info/" + device.userid)
+                  .then (function (update_ret1) {
+                    console.log(update_ret1)
+                     return $http.post("api/device/device_info/" + device.userid)
+                    .then (function (update_ret2) {
+                      console.log(update_ret2)
+                    })
+                  })
                 })
               })            
               

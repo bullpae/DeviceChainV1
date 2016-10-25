@@ -80,4 +80,21 @@ router.delete('/mydevice_info/:deviceid', function (req, res, next) {
   })
 })
 
+router.post('/mydevice_info/:userid', function (req, res, next) {
+  console.log("put address_info post 1: %s", req.params.userid)
+  console.log(req.body)
+
+  var conditions = { userid: req.params.userid }
+  var update = { $set: {certstatus: "true"} }
+
+  MyDeviceInfo.update(conditions, update) 
+  .exec(function(err) {
+    console.log("start update address ")
+    
+    if (err) res.status(500).json({ error: 'database failure' })
+    if (err) { return next(err) }
+    res.sendStatus(201)
+  })
+})
+
 module.exports = router
