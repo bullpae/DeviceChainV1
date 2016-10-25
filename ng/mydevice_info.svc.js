@@ -127,11 +127,21 @@ angular.module('app')
                 console.log("auth_device signed transaction!!! ")
                 console.log(signed_trans_res)
                 
-                var data = JSON.stringify(signed_trans_res.data)
-                console.log(data)
+                var tmpStr = new String(signed_trans_res.data)
+                var tmpSplit = tmpStr.split('\\\"', 10)
+                console.log(tmpSplit)
+
+                // var signed_tx_str = JSON.stringify(signed_trans_res.data)
+                // console.log(signed_tx_str)
+                // var signed_tx_json = JSON.parse(signed_tx_str)
+                // console.log(signed_tx_json)
+                var signed_tx = "{\"signed_tx_hex\":\"" + tmpSplit[3] + "\"}"
+                console.log(signed_tx)
+                // var data = JSON.stringify(signed_tx)
+                // console.log(data)
                 
                 return $http.post("api/blockchain/transaction/signtx", {
-                  send_ret: data
+                  send_ret: signed_tx
                 }).then (function (send_trans_res) {
                   console.log("auth_device send transaction!!! ")
                   console.log(send_trans_res)

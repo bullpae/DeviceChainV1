@@ -8,6 +8,8 @@ router.post('/transaction/signtx', function (req, res, next) {
   var data = req.body.trans_ret
   var network = "testnet"
   
+  console.log("signtx req data:")
+  console.log(req.body)
   console.log("signtx test: %s", key)
   console.log(data)
   
@@ -32,10 +34,13 @@ router.post('/transaction/signtx', function (req, res, next) {
 router.post('/transaction/sendtx', function (req, res, next) {
   var config = ScaleChain.configuration;
   var key = config.oAuthAccessToken
-  var data = req.body.trans_ret
+  var data = req.body.send_ret
   var network = "testnet"
+
+  console.log("sendtx req data:")
+  console.log(req.body)
   
-  console.log("signtx test: %s", key)
+  console.log("sendtx test: %s", key)
   console.log(data)
   
   request({
