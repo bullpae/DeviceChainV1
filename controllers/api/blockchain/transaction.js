@@ -10,6 +10,7 @@ router.post('/transaction/signtx', function (req, res, next) {
   
   console.log("signtx req data:")
   console.log(req.body)
+  
   console.log("signtx test: %s", key)
   console.log(data)
   
