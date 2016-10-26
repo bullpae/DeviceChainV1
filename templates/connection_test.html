@@ -1,10 +1,23 @@
 <div class="page-header">
   <h1>Connection Test</h1>
 </div>
-<div class="container">
+<div class="container-fluid big-3 text-center">
   <div class="well">
-    <img src="images/device1.png" class="img-thumbnail" alt="device" width="150" height="236">
-    <img src="images/server1.png" class="img-thumbnail pull-right" alt="device" width="150" height="236">
+    <div class="row">
+      <div class="col-sm-3">
+        <p>Devices</p>
+        <img src="images/device1.png" class="img-thumbnail" alt="device" width="150" height="236">
+      </div>
+      <!--<div class="progress col-sm-3 center">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+          40%
+        </div>
+      </div>-->
+      <div class="col-sm-3 pull-right">
+        <p>Server</p>
+        <img src="images/server1.png" class="img-thumbnail" alt="server" width="150" height="236">
+      </div>
+    </div>
     <div>
       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="connection_server()">Connection</button>
       <!-- Modal -->
