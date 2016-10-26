@@ -24,4 +24,15 @@ angular.module('app')
     console.log(device)
     DeviceInfoSvc.setdevice(device)
   }
+  
+  $scope.cancel_auth = function (device) {
+    console.log("cancel_auth() test")
+    
+    if (device) {
+      DeviceInfoSvc.cancel_auth(device)
+      .then(function () {
+        refresh()
+      }) 
+    }
+  }
 })

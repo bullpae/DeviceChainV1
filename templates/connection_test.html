@@ -8,6 +8,10 @@
         <p>Devices</p>
         <img src="images/device1.png" class="img-thumbnail" alt="device" width="150" height="236">
       </div>
+      <div layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular ng-disabled="!vm.activated" class="md-hue-2" md-diameter="20px"></md-progress-circular>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
       <!--<div class="progress col-sm-3 center">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
           40%
