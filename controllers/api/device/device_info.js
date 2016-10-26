@@ -31,7 +31,7 @@ router.get('/device_info/:deviceid/get', function (req, res, next) {
   var cond = req.params.deviceid
   
   console.log("DeviceInfo condition deviceid: %s", cond)
-  DeviceInfo.findOne(cond)
+  DeviceInfo.findOne({deviceid:cond})
   .exec(function (err, device) {
     if (err) { return next(err) }
     console.log("get device info")
@@ -93,16 +93,16 @@ router.delete('/device_info/:deviceid', function (req, res, next) {
   })
 })
 
-router.post('/device_info/:userid', function (req, res, next) {
-  console.log("put address_info post 1: %s", req.params.userid)
+router.post('/device_info/:deviceid/update', function (req, res, next) {
+  console.log("put device_info post 1: %s", req.params.deviceid)
   console.log(req.body)
 
-  var conditions = { userid: req.params.userid }
+  var conditions = { deviceid: req.params.deviceid }
   var update = { $set: {certstatus: "true"} }
 
   DeviceInfo.update(conditions, update) 
   .exec(function(err) {
-    console.log("start update address ")
+    console.log("start update device_info ")
     
     if (err) res.status(500).json({ error: 'database failure' })
     if (err) { return next(err) }

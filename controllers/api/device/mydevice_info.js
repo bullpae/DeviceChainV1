@@ -80,16 +80,16 @@ router.delete('/mydevice_info/:deviceid', function (req, res, next) {
   })
 })
 
-router.post('/mydevice_info/:userid', function (req, res, next) {
-  console.log("put address_info post 1: %s", req.params.userid)
+router.post('/mydevice_info/:deviceid/update', function (req, res, next) {
+  console.log("put mydevice_info post 1: %s", req.params.deviceid)
   console.log(req.body)
 
-  var conditions = { userid: req.params.userid }
+  var conditions = { deviceid: req.params.deviceid }
   var update = { $set: {certstatus: "true"} }
 
   MyDeviceInfo.update(conditions, update) 
   .exec(function(err) {
-    console.log("start update address ")
+    console.log("start update mydevice_info ")
     
     if (err) res.status(500).json({ error: 'database failure' })
     if (err) { return next(err) }

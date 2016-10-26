@@ -131,14 +131,8 @@ angular.module('app')
                 var tmpSplit = tmpStr.split('\\\"', 10)
                 console.log(tmpSplit)
 
-                // var signed_tx_str = JSON.stringify(signed_trans_res.data)
-                // console.log(signed_tx_str)
-                // var signed_tx_json = JSON.parse(signed_tx_str)
-                // console.log(signed_tx_json)
                 var signed_tx = "{\"signed_tx_hex\":\"" + tmpSplit[3] + "\"}"
                 console.log(signed_tx)
-                // var data = JSON.stringify(signed_tx)
-                // console.log(data)
                 
                 return $http.post("api/blockchain/transaction/sendtx", {
                   send_ret: signed_tx
@@ -146,10 +140,11 @@ angular.module('app')
                   console.log("auth_device send transaction!!! ")
                   console.log(send_trans_res)
                   // certstatus update
-                  return $http.post("api/device/mydevice_info/" + device.userid)
+                  return $http.post("api/device/mydevice_info/" + device.deviceid + "/update")
                   .then (function (update_ret1) {
                     console.log(update_ret1)
-                     return $http.post("api/device/device_info/" + device.userid)
+                    
+                    return $http.post("api/device/device_info/" + device.deviceid + "/update")
                     .then (function (update_ret2) {
                       console.log(update_ret2)
                     })
