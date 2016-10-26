@@ -4,55 +4,48 @@
 <div class="container-fluid big-3 text-center">
   <div class="well">
     <div class="row">
-      <div class="col-sm-3">
-        <p>Devices</p>
+      <div class="col-sm-4">
         <img src="images/device1.png" class="img-thumbnail" alt="device" width="150" height="236">
+        <p>Devices</p>
       </div>
-      <div layout="row" layout-sm="column" layout-align="space-around">
-        <md-progress-circular ng-disabled="!vm.activated" class="md-hue-2" md-diameter="20px"></md-progress-circular>
-        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-      </div>
-      <!--<div class="progress col-sm-3 center">
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-          40%
-        </div>
-      </div>-->
-      <div class="col-sm-3 pull-right">
-        <p>Server</p>
-        <img src="images/server1.png" class="img-thumbnail" alt="server" width="150" height="236">
-      </div>
-    </div>
-    <div>
-      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="connection_server()">Connection</button>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Connection state</h4>
-            </div>
-            <div class="modal-body">
-              <div class="well">
-                <div ng-if="address.balance > 0">
-                  <h3>인증 성공으로 접속 가능한 상태입니다.</h3>
-                </div>
-                <div ng-if="address.balance == 0">
-                  <h3>인증 실패로 접속이 차단 되었습니다.</h3>
-                </div>
-                <!--dl class="dl-horizontal">
-                  <dt> Address </dt> <dd> {{address.address}} </dd>
-                  <dt> Balance </dt> <dd> {{address.balance}} </dd>
-                  <dt> Received </dt> <dd> {{address.received}} </dd>
-                  <dt> Sent </dt> <dd>  {{address.sent}} </dd>
-                </dl-->
-              </div>  
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="col-sm-4">
+        <p><span class="glyphicon glyphicon-chevron-up"></span></p>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="connection_server()">Connection</button>
+        <p><span class="glyphicon glyphicon-chevron-down"></span></p>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Connection state</h4>
+              </div>
+              <div class="modal-body">
+                <div class="well">
+                  <div ng-if="address.balance > 0">
+                    <h3>인증 성공으로 접속 가능한 상태입니다.</h3>
+                  </div>
+                  <div ng-if="address.balance == 0">
+                    <h3>인증 실패로 접속이 차단 되었습니다.</h3>
+                  </div>
+                  <!--dl class="dl-horizontal">
+                    <dt> Address </dt> <dd> {{address.address}} </dd>
+                    <dt> Balance </dt> <dd> {{address.balance}} </dd>
+                    <dt> Received </dt> <dd> {{address.received}} </dd>
+                    <dt> Sent </dt> <dd>  {{address.sent}} </dd>
+                  </dl-->
+                </div>  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
+      </div> <!-- -->
+      <div class="col-sm-4">
+        <img src="images/server1.png" class="img-thumbnail" alt="server" width="150" height="236">
+        <p>Server</p>
       </div>
     </div>
   </div>

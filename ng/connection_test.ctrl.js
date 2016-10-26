@@ -1,22 +1,22 @@
 angular.module('app')
-.controller('ConnectionTestCtrl', ['$interval', function ($scope, $http, AccountInfoSvc, $interval) {
+.controller('ConnectionTestCtrl', function ($scope, $http, AccountInfoSvc, $interval) {
   var refresh = function () {
     console.log("recv_device")
   }
 
   refresh()
   
-  var self = this;
-  self.activated = true;
-  self.determinateValue = 30;
-  // Iterate every 100ms, non-stop and increment
-  // the Determinate loader.
-  $interval(function() {
-    self.determinateValue += 1;
-    if (self.determinateValue > 100) {
-      self.determinateValue = 30;
-    }
-  }, 100);
+  // var self = this;
+  // self.activated = true;
+  // self.determinateValue = 30;
+  // // Iterate every 100ms, non-stop and increment
+  // // the Determinate loader.
+  // $interval(function() {
+  //   self.determinateValue += 1;
+  //   if (self.determinateValue > 100) {
+  //     self.determinateValue = 30;
+  //   }
+  // }, 100);
 
   $scope.connection_server = function () {
     AccountInfoSvc.fetch()
@@ -34,4 +34,4 @@ angular.module('app')
       })
     })
   }
-}])
+})
