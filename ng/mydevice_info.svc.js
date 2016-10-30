@@ -105,27 +105,33 @@ angular.module('app')
         
         if (device.deviceid == auth_device_res.deviceid) {
           console.log("same info!!")
+          toastr.info("등록 가능 기기입니다.", "Info")
           // get node account
           return $http.get('/api/account/account_info/' + "admin")
           .then(function (account_info_res) {
             console.log("get node account!!: %s", account_info_res.data[0].accountid)
             console.log(account_info_res)
+            toastr.info("권한 등록 중...", "Info")
             
             // send coin
             return $http.post("api/blockchain/account/send", {
               device: device, account_info: account_info_res.data[0], amount: 1000
             }).then (function (send_coin_res) {
+              toastr.info("권한 등록 완료.", "Info")
               console.log("auth_device send coin!!! ")
               console.log(send_coin_res)
-               
+              toastr.info("블록 생성 및 서명 중...", "Info")
+
               var data = JSON.stringify(send_coin_res.data)
               console.log(data)
               
               return $http.post("api/blockchain/transaction/signtx", {
                 trans_ret: data
               }).then (function (signed_trans_res) {  
+                toastr.info("블록 생성 및 서명 완료.", "Info")
                 console.log("auth_device signed transaction!!! ")
                 console.log(signed_trans_res)
+                toastr.info("블록 동기화 중...", "Info")
                 
                 var tmpStr = new String(signed_trans_res.data)
                 var tmpSplit = tmpStr.split('\\\"', 10)
@@ -137,8 +143,10 @@ angular.module('app')
                 return $http.post("api/blockchain/transaction/sendtx", {
                   send_ret: signed_tx
                 }).then (function (send_trans_res) {
+                  toastr.info("블록 동기화 완료.", "Info")
                   console.log("auth_device send transaction!!! ")
                   console.log(send_trans_res)
+                  
                   // certstatus update
                   return $http.post("api/device/mydevice_info/" + device.deviceid + "/update")
                   .then (function (update_ret1) {
@@ -146,6 +154,7 @@ angular.module('app')
                     
                     return $http.post("api/device/device_info/" + device.deviceid + "/update")
                     .then (function (update_ret2) {
+                      toastr.info("기기 등록 완료.", "Info")
                       console.log(update_ret2)
                     })
                   })
@@ -168,9 +177,17 @@ angular.module('app')
               //   })
               // })
             })
+          }, function () {
+            toastr.error("미등록 기기입니다!", "Error")
           })
+        } else {
+          toastr.error("기기번호 오류입니다.", "Error")
         }
+      } else {
+          toastr.error("미등록 기기입니다!!", "Error")
       }
+    }, function () {
+      toastr.error("미등록 기기입니다!!!", "Error")
     })
   }
 })

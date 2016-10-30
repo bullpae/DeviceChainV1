@@ -53,7 +53,7 @@ angular.module('app')
 
   $scope.$on('showalert', function (_, message, alerttype) {
     console.log("event showalert app ctrl")
-    toastr.success('Sign In', message);
+    toastr.success(message, 'Sign In');
     
     // $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  alerttype + '"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
     // setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs

@@ -47,7 +47,7 @@ angular.module("app")
       console.log(response)
       console.log(err)
       if (err) { 
-        toastr.error('Sign in', 'Faild! Sign in!');
+        toastr.error('Faild! Sign in!', 'error');
         return next(err) 
       }
       console.log("recv token:")

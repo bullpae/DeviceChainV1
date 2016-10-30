@@ -6,7 +6,7 @@ angular.module('app')
     .then(function (user) {
       console.log(user)
       if (!user) {
-        toastr.error('Sign In', 'No User!!')
+        toastr.error('No User!!', 'Sign In')
         return
       }
       console.log("succ signin:")
