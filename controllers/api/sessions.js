@@ -14,25 +14,14 @@ router.post('/sessions', function (req, res, next) {
   User.findOne({userid: userid})
   .select('password')
   .exec(function (err, user) {
-    console.log("api check error")
     console.log(err)
-    if (err) { return next(err) }
-    console.log("api no error")
-    console.log("api check user")
     console.log(user)
+    if (err) { return next(err) }
     if (!user) { return res.sendStatus(401) }
-    console.log("api no user")
-    
-    console.log("user.password: %s", user.password)
     bcrypt.compare(req.body.password, user.password, function (bcrypt_err, valid) {
       if (bcrypt_err) { return next(err) }
-      console.log("no error")
       if (!valid) { return res.sendStatus(401) }
-      console.log("valid")
       var token = jwt.encode({userid: userid}, config.secret)
-      
-      console.log("get token")
-      console.log(token)
       res.send(token)
     })
   })

@@ -43,7 +43,13 @@ angular.module("app")
 
     return $http.post("/api/sessions", {
       userid: userid, password: password
-    }).then(function (response) {
+    }).then(function (response, err, next) {
+      console.log(response)
+      console.log(err)
+      if (err) { 
+        toastr.error('Sign in', 'Faild! Sign in!');
+        return next(err) 
+      }
       console.log("recv token:")
       console.log(response.data)
       svc.token = response.data
@@ -51,6 +57,8 @@ angular.module("app")
       console.log("getDcAuth()!!!!!!!")
       svc.getDcAuth() // Get SC API 
       return svc.getUser(userid)
+    }, function (err) {
+      return null
     })
   }
   

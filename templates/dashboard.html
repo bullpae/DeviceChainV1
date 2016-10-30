@@ -1,17 +1,38 @@
 <div class="page-header">
   <h1>DeviceChain Nodes</h1>
 </div>
-<!--form role='form'>
-  <div class='form-group'>
-    <div class="input-group">
-      <input ng-model="postBody" class='form-control'>
-      <span class='input-group-btn'>
-        <button ng-click='addPost()' class='btn btn-default'>Add Post</button>
-      </span>
-    </div>
-  </div>
-</form-->
 
+<!--<div flex ng-cloak>
+  <md-grid-list
+        md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="4px" >
+
+    <md-grid-tile ng-repeat="dc_node in dc_list"
+                  md-rowspan="1"
+                  md-colspan="1"
+                  md-colspan-sm="1"
+                  md-colspan-xs="1" >
+      <md-icon md-svg-icon="{{imagePath}}"></md-icon>
+      <md-grid-tile-footer><h3>{{ dc_node.subver}}</h3></md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</div>-->
+
+
+
+<!--<md-content>
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat="dc_node in dc_list">
+      <div class="md-list-item-text">
+        <h3>{{ dc_node.subver}}</h3>
+        <h4>{{ strSplit(dc_node.addr)[0] }}</h4>
+        <h4>{{ strSplit(dc_node.addr)[1] }}</h4>
+        <p><i class="fa fa-check-square-o"></i>{{ dc_node.status }}</p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>-->
 <div class="container">
   <div class="well">
     <table class="table table-striped">
