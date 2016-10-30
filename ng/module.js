@@ -1,3 +1,5 @@
 angular.module('app', [
-  'ngRoute'
+  'ngRoute',
+  'ngMaterial',
+  'toastr',
 ])
