@@ -6,8 +6,7 @@ angular.module('app')
 
   refresh()
   
-  // var self = this;
-  // self.activated = true;
+  $scope.prg_disabled = true 
   // self.determinateValue = 30;
   // // Iterate every 100ms, non-stop and increment
   // // the Determinate loader.
@@ -19,6 +18,7 @@ angular.module('app')
   // }, 100);
 
   $scope.connection_server = function () {
+    $scope.prg_disabled = false
     AccountInfoSvc.fetch()
     .then ( function (res) {
       console.log("get balance!!:%s", res[0].public_key)
@@ -33,5 +33,10 @@ angular.module('app')
         $scope.address = response.data
       })
     })
+  }
+
+  $scope.end_test = function () {
+    console.log("end_test")
+    $scope.prg_disabled = true 
   }
 })
