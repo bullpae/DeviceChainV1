@@ -29,6 +29,6 @@ angular.module('app')
   .when('/user_info', { controller: 'UserInfoCtrl', templateUrl: '/templates/user_info.html' })
   .when('/user_detail', { controller: 'UserDetailCtrl', templateUrl: '/templates/user_detail.html' })
 
-  .when('/cert_test',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_test.html' })
-  .when('/cert_device',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_device.html' })
+  // .when('/cert_test',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_test.html' })
+  // .when('/cert_device',    { controller: 'SigninCtrl', templateUrl: '/templates/cert_device.html' })
 })
