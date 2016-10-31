@@ -98,7 +98,7 @@ router.post('/device_info/:deviceid/update', function (req, res, next) {
   console.log(req.body)
 
   var conditions = { deviceid: req.params.deviceid }
-  var update = { $set: {certstatus: "true"} }
+  var update = { $set: {certstatus: req.body.certstatus} }
 
   DeviceInfo.update(conditions, update) 
   .exec(function(err) {
