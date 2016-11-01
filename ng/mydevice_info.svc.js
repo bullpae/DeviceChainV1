@@ -114,19 +114,25 @@ angular.module('app')
             toastr.info("권한 등록 중...", "Info")
             
             // send coin
-            return $http.post("api/blockchain/account/send", {
-              device: device, account_info: account_info_res.data[0], amount: 1000
+            return $http.post("api/blockchain/account/sendtx", {
+              device: device, account_info: account_info_res.data[0], amount: 120000
             }).then (function (send_coin_res) {
               toastr.info("권한 등록 완료.", "Info")
               console.log("auth_device send coin!!! ")
               console.log(send_coin_res)
               toastr.info("블록 생성 및 서명 중...", "Info")
 
-              var data = JSON.stringify(send_coin_res.data)
-              console.log(data)
+              var tmpSendStr = new String(send_coin_res.data)
+              var tmpSendSplit = tmpSendStr.split('\"', 10)
+              console.log(tmpSendSplit)
+
+              var send_tx = "{\"unsigned_tx_hex\":\"" + tmpSendSplit[3] + "\"}"
+              console.log(send_tx)
+              // var data = JSON.stringify(send_coin_res.data)
+              // console.log(data)
               
               return $http.post("api/blockchain/transaction/signtx", {
-                trans_ret: data
+                trans_ret: send_tx
               }).then (function (signed_trans_res) {  
                 toastr.info("블록 생성 및 서명 완료.", "Info")
                 console.log("auth_device signed transaction!!! ")
@@ -134,7 +140,7 @@ angular.module('app')
                 toastr.info("블록 동기화 중...", "Info")
                 
                 var tmpStr = new String(signed_trans_res.data)
-                var tmpSplit = tmpStr.split('\\\"', 10)
+                var tmpSplit = tmpStr.split('\"', 10)
                 console.log(tmpSplit)
 
                 var signed_tx = "{\"signed_tx_hex\":\"" + tmpSplit[3] + "\"}"
@@ -148,12 +154,14 @@ angular.module('app')
                   console.log(send_trans_res)
                   
                   // certstatus update
-                  return $http.post("api/device/mydevice_info/" + device.deviceid + "/update")
-                  .then (function (update_ret1) {
+                  return $http.post("api/device/mydevice_info/" + device.deviceid + "/update", {
+                    certstatus: "true"
+                  }).then (function (update_ret1) {
                     console.log(update_ret1)
                     
-                    return $http.post("api/device/device_info/" + device.deviceid + "/update")
-                    .then (function (update_ret2) {
+                    return $http.post("api/device/device_info/" + device.deviceid + "/update", {
+                      certstatus: "true"
+                    }).then (function (update_ret2) {
                       toastr.info("기기 등록 완료.", "Info")
                       console.log(update_ret2)
                     })
