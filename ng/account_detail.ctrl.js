@@ -87,4 +87,8 @@ angular.module('app')
     console.log(account)
     window.open('http://tbtc.blockr.io/address/info/' + account.public_key, 'newWindow');
   }
+
+  $scope.get_coins = function () {
+    window.open('https://testnet.manu.backend.hamburg/faucet', 'newWindow');
+  }
 })
