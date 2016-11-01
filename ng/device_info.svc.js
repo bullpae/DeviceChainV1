@@ -115,7 +115,7 @@ angular.module('app')
           return
         }
 
-        console.log("Cancel Device Account ID:%s", adminAccount.data[0].accountid)
+        console.log("Admin Device Account ID:%s", adminAccount.data[0].accountid)
         console.log(adminAccount)
 
         return $http.get('/api/account/account_info/' + cancelDevice.userid)
@@ -125,13 +125,13 @@ angular.module('app')
             return
           }
 
-          console.log("Admin account: %s Device account:%s", deviceAccount.data[0].accountid, adminAccount.data[0].accountid)
+          console.log("Admin account: %s Device account:%s", adminAccount.data[0].accountid, deviceAccount.data[0].accountid)
           console.log(deviceAccount)
           toastr.info("권한 삭제 중...", "Info")
                 
           // send coin
           return $http.post("api/blockchain/account/sendtx", {
-            public_key: cancelDevice.public_key, accountid: deviceAccount.data[0].accountid, amount: 100000
+            public_key: adminDevice.public_key, accountid: deviceAccount.data[0].accountid, amount: 100000
           }).then (function (send_coin_res) {
             toastr.info("권한 삭제 완료.", "Info")
             console.log("auth_device send coin!!! ")
