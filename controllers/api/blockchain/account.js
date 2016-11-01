@@ -26,7 +26,7 @@ router.post('/account/sendtx', function (req, res, next) {
   var config = ScaleChain.configuration;
   var key = config.oAuthAccessToken
   
-  var data = "{\"account_id\":\"" + req.body.account_info.accountid + "\", \"to_address\":\"" + req.body.device.public_key + "\", \"amount\":" + req.body.amount + "}"
+  var data = "{\"account_id\":\"" + req.body.accountid + "\", \"to_address\":\"" + req.body.public_key + "\", \"amount\":" + req.body.amount + "}"
   var network = "testnet"
   
   console.log("sendtx req data:")

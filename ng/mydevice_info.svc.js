@@ -59,6 +59,15 @@ angular.module('app')
     })
   }
 
+  // svc.read_device = function (device) {
+  //   return $http.get('/api/device/mydevice_info/' + device.deviceid + "/get")
+  //   .then(function (response) {
+  //     return response.data
+  //   }, function () {
+  //     return null
+  //   })
+  // }
+
   svc.delete_device = function (device) {
     return $http.delete('api/device/mydevice_info/' + device.deviceid)
     .then (function (res) {
@@ -115,7 +124,7 @@ angular.module('app')
             
             // send coin
             return $http.post("api/blockchain/account/sendtx", {
-              device: device, account_info: account_info_res.data[0], amount: 120000
+              device: device.public_key, account_info: account_info_res.data[0].accountid, amount: 120000
             }).then (function (send_coin_res) {
               toastr.info("권한 등록 완료.", "Info")
               console.log("auth_device send coin!!! ")
@@ -166,7 +175,11 @@ angular.module('app')
                       console.log(update_ret2)
                     })
                   })
+                }, function () {
+                  toastr.error("블록 동기화 오류!", "Error")
                 })
+              }, function () {
+                toastr.error("블록 생성 및 서명 오류!", "Error")
               })            
               
               // signed transaction
@@ -184,12 +197,14 @@ angular.module('app')
 
               //   })
               // })
+            }, function () {
+              toastr.error("권한 등록 오류!", "Error")
             })
           }, function () {
-            toastr.error("미등록 기기입니다!", "Error")
+            toastr.error("등록정보 오류(미등록 기기)!", "Error")
           })
         } else {
-          toastr.error("기기번호 오류입니다.", "Error")
+          toastr.error("등록정보 오류(기기번호)!", "Error")
         }
       } else {
           toastr.error("미등록 기기입니다!!", "Error")

@@ -40,4 +40,10 @@ angular.module('app')
       }) 
     }
   }
+
+    $scope.get_transaction = function (device) {
+    // var account = AccountInfoSvc.get()
+    console.log(device)
+    window.open('http://tbtc.blockr.io/address/info/' + device.public_key, 'newWindow');
+  }
 })

@@ -67,6 +67,21 @@ router.post('/mydevice_info', function (req, res, next) {
   })
 })
 
+router.get('/mydevice_info/:deviceid/get', function (req, res, next) {
+  var cond = req.params.deviceid
+  
+  console.log("MyDeviceInfo condition deviceid: %s", cond)
+  MyDeviceInfo.findOne({deviceid:cond})
+  .exec(function (err, device) {
+    if (err) { return next(err) }
+    console.log("get mydevice info")
+    console.log(device)
+    console.log("end mydevice info")
+    res.json(device)
+    console.log("test my device info")
+  })
+})
+
 router.delete('/mydevice_info/:deviceid', function (req, res, next) {
   console.log("MyDeviceInfo delete 1 %s", req.params.deviceid)
   console.log(req.params)
