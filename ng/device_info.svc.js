@@ -125,7 +125,7 @@ angular.module('app')
             return
           }
 
-          console.log("Admin account: %s Device account:%s", adminAccount.data[0].accountid, deviceAccount.data[0].accountid)
+          console.log("Admin account: %s Device account:%s", deviceAccount.data[0].accountid, adminAccount.data[0].accountid)
           console.log(deviceAccount)
           toastr.info("권한 삭제 중...", "Info")
                 
