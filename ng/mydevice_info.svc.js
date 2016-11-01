@@ -124,7 +124,7 @@ angular.module('app')
             
             // send coin
             return $http.post("api/blockchain/account/sendtx", {
-              device: device.public_key, account_info: account_info_res.data[0].accountid, amount: 120000
+              public_key: device.public_key, accountid: account_info_res.data[0].accountid, amount: 120000
             }).then (function (send_coin_res) {
               toastr.info("권한 등록 완료.", "Info")
               console.log("auth_device send coin!!! ")

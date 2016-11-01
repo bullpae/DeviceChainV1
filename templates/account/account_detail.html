@@ -3,6 +3,9 @@
 </div>
 <div class="container">
   <div class="well">
+    <div class="pull-right">
+      <button type="button" class="btn btn-info" ng-click="get_coins()" ng-if="account.get_address == 'true' && account.userid=='admin'">Get Coins</button>
+    </div>
     <dl class="dl-horizontal">
       <dt> Account Name </dt> <dd> {{account.accountname}} </dd>
       <dt> Account ID </dt> <dd> {{account.accountid}} </dd>
