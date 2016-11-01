@@ -81,4 +81,10 @@ angular.module('app')
       $scope.address = res.data
     })
   }
+
+  $scope.get_transaction = function (account) {
+    // var account = AccountInfoSvc.get()
+    console.log(account)
+    window.open('http://tbtc.blockr.io/address/info/' + account.public_key, 'newWindow');
+  }
 })
